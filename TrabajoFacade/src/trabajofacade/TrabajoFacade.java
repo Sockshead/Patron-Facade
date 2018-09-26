@@ -13,37 +13,74 @@ import javax.swing.JOptionPane;
  * @author JUan Camilo Posada
  */
 public class TrabajoFacade {
+
     public static void main(String[] args) {
         String correo;
         String password;
         String rol;
-        facede f= new facede();
+        Facade f = new Facade();
 
-                int entrada = Integer.parseInt(JOptionPane.showInputDialog("1. Conductor \n 2. Pasajero \n 3. Administrador \n 0. Salir"));
-                switch (entrada) {
-                        case 0:
-                            System.exit(0);
-                            break;
-                        case 1:
-                            Usuario usuario = new Conductor();
-                            int entrada1 = Integer.parseInt(JOptionPane.showInputDialog("1. Adicionar \n 2. Modificar \n 3. Consultar \n 0. salir \n\n Canelar para retroceder"));
-                            switch (entrada1) {
-                                case 0:
-                                    System.exit(0);
-                                    break;
-                                case 1:
-                                    correo = JOptionPane.showInputDialog("Ingrese el correo:");
-                                    if (f.MiLista.isEmpty()) {
-                                        password = JOptionPane.showInputDialog("Ingrese la contraseña:");
-                                        usuario.adicionar(correo, password);
-                                        f.MiLista.add(usuario);
-    }
-}
+        int entrada = Integer.parseInt(JOptionPane.showInputDialog("1. Conductor \n 2. Pasajero \n 3. Administrador \n 0. Salir"));
+        switch (entrada) {
+            case 0:
+                System.exit(0);
+                break;
+            case 1:
+                int entrada1 = Integer.parseInt(JOptionPane.showInputDialog("1. Adicionar \n 2. Modificar \n 3. Consultar \n 0. salir \n\n Canelar para retroceder"));
+                switch (entrada1) {
+                    case 0:
+                        System.exit(0);
+                        break;
+                    case 1:
+                        correo = JOptionPane.showInputDialog("Ingrese el correo:");
+                        if (f.MiLista.isEmpty()) {
+                            password = JOptionPane.showInputDialog("Ingrese la contraseña:");
+                            if (f.agregarConductor(correo, password)) {
+                                System.out.println("Conductor Agregado Exitosamente y a tato le tiembla el cora");
+                            } else {
+                                System.out.println("Error a el agregar el conductor");
+                            }
+                        }
                 }
+            case 2:
+                int entrada2 = Integer.parseInt(JOptionPane.showInputDialog("1. Adicionar \n 2. Modificar \n 3. Consultar \n 0. salir \n\n Canelar para retroceder"));
+                switch (entrada2) {
+                    case 0:
+                        System.exit(0);
+                        break;
+                    case 1:
+                        correo = JOptionPane.showInputDialog("Ingrese el correo:");
+                        if (f.MiLista.isEmpty()) {
+                            password = JOptionPane.showInputDialog("Ingrese la contraseña:");
+                            if (f.agregarConductor(correo, password)) {
+                                System.out.println("Pasajero Agregado Exitosamente y a tato le tiembla el cora");
+                            } else {
+                                System.out.println("Error a el agregar el conductor");
+                            }
+                        }
+                }
+            case 3:
+                int entrada3 = Integer.parseInt(JOptionPane.showInputDialog("1. Adicionar \n 2. Modificar \n 3. Consultar \n 0. salir \n\n Canelar para retroceder"));
+                switch (entrada3) {
+                    case 0:
+                        System.exit(0);
+                        break;
+                    case 1:
+                        correo = JOptionPane.showInputDialog("Ingrese el correo:");
+                        if (f.MiLista.isEmpty()) {
+                            password = JOptionPane.showInputDialog("Ingrese la contraseña:");
+                            if (f.agregarConductor(correo, password)) {
+                                System.out.println("Pasajero Agregado Exitosamente y a tato le tiembla el cora");
+                            } else {
+                                System.out.println("Error a el agregar el conductor");
+                            }
+                        }
+                }
+        }
     }
 }
-    
-                /*do {
+
+/*do {
                     switch (entrada) {
                         case 0:
                             System.exit(0);
@@ -284,5 +321,3 @@ public class TrabajoFacade {
                 confir = true;
             }
         } while (confir); */
-
-
