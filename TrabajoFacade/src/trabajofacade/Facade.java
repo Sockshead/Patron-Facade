@@ -40,68 +40,64 @@ public class Facade {
         return agregado;
     }
 
-    public boolean agregarPasajero(String correo, String password){
-    boolean existe = false;
-    boolean agregado = false;
-    Usuario usuario = new Pasajero();
+    public boolean agregarPasajero(String correo, String password) {
+        boolean existe = false;
+        boolean agregado = false;
+        Usuario usuario = new Pasajero();
 
-    if (MiLista.isEmpty ()) {
-            usuario.adicionar(correo, password);
-        if (MiLista.add(usuario)) {
-            agregado = true;
-
-        }
-    }
-
-    
-        else {
-            for (int i = 0; i < MiLista.size(); i++) {
-            System.out.println("a tato le tiembla el cora");
-            Usuario us = MiLista.get(i);
-            if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Pasajero) {
-                existe = true;
-            }
-        }
-        if (!existe) {
+        if (MiLista.isEmpty()) {
             usuario.adicionar(correo, password);
             if (MiLista.add(usuario)) {
                 agregado = true;
+
             }
-        }
-    }
-    return agregado;
-
-}
-public boolean agregarAdministador(String correo, String password){
-    boolean existe = false;
-    boolean agregado = false;
-    Usuario usuario = new AdapterAdmin();
-
-    if (MiLista.isEmpty ()) {
-            usuario.adicionar(correo, password);
-        if (MiLista.add(usuario)) {
-            agregado = true;
-
-        }
-    }
-
-    
-        else {
+        } else {
             for (int i = 0; i < MiLista.size(); i++) {
-            System.out.println("a tato le tiembla el cora");
-            Usuario us = MiLista.get(i);
-            if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Admin) {
-                existe = true;
+                System.out.println("a tato le tiembla el cora");
+                Usuario us = MiLista.get(i);
+                if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Pasajero) {
+                    existe = true;
+                }
+            }
+            if (!existe) {
+                usuario.adicionar(correo, password);
+                if (MiLista.add(usuario)) {
+                    agregado = true;
+                }
             }
         }
-        if (!existe) {
+        return agregado;
+
+    }
+
+    public boolean agregarAdministador(String correo, String password) {
+        boolean existe = false;
+        boolean agregado = false;
+        Usuario usuario = new AdapterAdmin();
+
+        if (MiLista.isEmpty()) {
             usuario.adicionar(correo, password);
             if (MiLista.add(usuario)) {
                 agregado = true;
-            }
-        }
-    
-}
-}
-}
 
+            }
+        } else {
+            for (int i = 0; i < MiLista.size(); i++) {
+                System.out.println("a tato le tiembla el cora");
+                Usuario us = MiLista.get(i);
+                if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof AdapterAdmin) {
+                    existe = true;
+                }
+            }
+            if (!existe) {
+                usuario.adicionar(correo, password);
+                if (MiLista.add(usuario)) {
+                    agregado = true;
+                }
+            }
+
+        }
+        return agregado;
+
+    }
+}

@@ -55,7 +55,7 @@ public class TrabajoFacade {
                             if (f.agregarConductor(correo, password)) {
                                 System.out.println("Pasajero Agregado Exitosamente y a tato le tiembla el cora");
                             } else {
-                                System.out.println("Error a el agregar el conductor");
+                                System.out.println("Error a el agregar el Pasajero");
                             }
                         }
                 }
@@ -70,9 +70,9 @@ public class TrabajoFacade {
                         if (f.MiLista.isEmpty()) {
                             password = JOptionPane.showInputDialog("Ingrese la contraseña:");
                             if (f.agregarConductor(correo, password)) {
-                                System.out.println("Pasajero Agregado Exitosamente y a tato le tiembla el cora");
+                                System.out.println("Administrador Agregado Exitosamente y a tato le tiembla el cora");
                             } else {
-                                System.out.println("Error a el agregar el conductor");
+                                System.out.println("Error a el agregar el Administrador");
                             }
                         }
                 }
