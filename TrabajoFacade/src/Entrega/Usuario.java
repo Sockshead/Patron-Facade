@@ -10,11 +10,14 @@ package Entrega;
  * @author JUan Camilo Posada
  */
 public abstract class Usuario {
-      private String Correo;
+
+    private String Correo;
     private String Pass;
-    
+
     abstract public void adicionar(String correo, String password);
-    abstract public void modificar( String password);
+
+    abstract public void modificar(String password);
+
     abstract public String consultar(String correo);
 
     public String getCorreo() {
@@ -32,5 +35,5 @@ public abstract class Usuario {
     public void setPass(String Pass) {
         this.Pass = Pass;
     }
-    
+
 }

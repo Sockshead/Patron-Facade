@@ -77,7 +77,7 @@ public class Facade {
     }
 
     public void agregarAdministador(String correo, String password) throws Exception {
-         boolean existe = false;
+        boolean existe = false;
         boolean agregado = false;
         Usuario usuario = new AdapterAdmin();
 
@@ -176,5 +176,79 @@ public class Facade {
         if (!existe) {
             throw new Exception("Administrador con el correo " + correo + " no existe.");
         }
+    }
+
+    public String consultarConductor(String correo) throws Exception {
+        boolean encontrado = false;
+        Usuario usuario = null;
+        String found = "";
+        
+        System.out.println(correo);
+
+        if (usuarios.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
+        } else {
+            for (int i = 0; i < usuarios.size(); i++) {
+                usuario = usuarios.get(i);
+                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
+                    encontrado = true;
+                }
+            }
+            if (encontrado) {
+                found = usuario.consultar(correo);
+            }
+        }
+        if (!encontrado) {
+            throw new Exception("Conductor con el correo " + correo + " no existe.");
+        }
+        return found;
+    }
+
+    public String consultarPasajero(String correo) throws Exception {
+        boolean encontrado = false;
+        Usuario usuario = null;
+        String found = "";
+
+        if (usuarios.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
+        } else {
+            for (int i = 0; i < usuarios.size(); i++) {
+                usuario = usuarios.get(i);
+                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
+                    encontrado = true;
+                }
+            }
+            if (encontrado) {
+                found = usuario.consultar(correo);
+            }
+        }
+        if (!encontrado) {
+            throw new Exception("Conductor con el correo " + correo + " no existe.");
+        }
+        return found;
+    }
+
+    public String consultarAdministrador(String correo) throws Exception {
+        boolean encontrado = false;
+        Usuario usuario = null;
+        String found = "";
+
+        if (usuarios.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
+        } else {
+            for (int i = 0; i < usuarios.size(); i++) {
+                usuario = usuarios.get(i);
+                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
+                    encontrado = true;
+                }
+            }
+            if (encontrado) {
+                found = usuario.consultar(correo);
+            }
+        }
+        if (!encontrado) {
+            throw new Exception("Conductor con el correo " + correo + " no existe.");
+        }
+        return found;
     }
 }

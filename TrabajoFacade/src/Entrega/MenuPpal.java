@@ -54,9 +54,9 @@ public class MenuPpal {
     public void inicioSesion() {
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
-        try{
-            prox.validarUs(correo, password);   
-        } catch (Exception e){
+        try {
+            prox.validarUs(correo, password);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -99,32 +99,6 @@ public class MenuPpal {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        /*char opcion;
-        do {
-            String entrada1 = JOptionPane.showInputDialog("1. Adicionar \n 2. Modificar \n 3. Consultar \n 0. salir");
-            opcion = entrada1.charAt(0);
-            switch (opcion) {
-                case '0':
-                    this.menu();
-                    break;
-                case '1':
-                    
-                    break;
-                case '2':
-                    correo = JOptionPane.showInputDialog("Ingrese el correo:");
-                    password = JOptionPane.showInputDialog("Ingrese la contraseña:");
-                    try {
-                        f.modConductor(correo, password);
-                        System.out.println("Conductor Modificado Exitosamente y a tato le tiembla el cora");
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                    break;
-                case '3':
-                    System.out.println("WIP");
-                    break;
-            }
-        } while (opcion != '0');*/
     }
 
     public void casoNuevoPasajero() {
@@ -136,31 +110,6 @@ public class MenuPpal {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        /*char opcion;
-        do {
-            String entrada1 = JOptionPane.showInputDialog("1. Adicionar \n 2. Modificar \n 3. Consultar \n 0. salir");
-            opcion = entrada1.charAt(0);
-            switch (opcion) {
-                case '0':
-                    this.menu();
-                    break;
-                case '1':
-                    break;
-                case '2':
-                    correo = JOptionPane.showInputDialog("Ingrese el correo:");
-                    password = JOptionPane.showInputDialog("Ingrese la contraseña:");
-                    try {
-                        f.modPasajero(correo, password);
-                        System.out.println("Pasajero Modificado Exitosamente y a tato le tiembla el cora");
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                    break;
-                case '3':
-                    System.out.println("WIP");
-                    break;
-            }
-        } while (opcion != '0');*/
     }
 
     public void casoNuevoAdmin() {
@@ -172,31 +121,5 @@ public class MenuPpal {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        /*char opcion;
-        do {
-            String entrada1 = JOptionPane.showInputDialog("1. Adicionar \n 2. Modificar \n 3. Consultar \n 0. salir");
-            opcion = entrada1.charAt(0);
-            switch (opcion) {
-                case '0':
-                    this.menu();
-                    break;
-                case '1':
-                    
-                    break;
-                case '2':
-                    correo = JOptionPane.showInputDialog("Ingrese el correo:");
-                    password = JOptionPane.showInputDialog("Ingrese la contraseña:");
-                    try {
-                        f.modAdmin(correo, password);
-                        System.out.println("Administrador Modificado Exitosamente y a tato le tiembla el cora");
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                    break;
-                case '3':
-                    System.out.println("WIP");
-                    break;
-            }
-        } while (opcion != '0');*/
     }
 }

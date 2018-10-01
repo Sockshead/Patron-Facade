@@ -24,14 +24,13 @@ class Proxy implements IMenu {
 
     public void performOperations() {
         if (user instanceof AdapterAdmin) {
-            menu = new MenUsuario();
+            menu = new MenUsuario(user);
             menu.menuAdmin();
-        }
-        if (user instanceof Conductor) {
-            menu = new MenUsuario();
+        } else if (user instanceof Conductor) {
+            menu = new MenUsuario(user);
             menu.menuConductor();
         } else if (user instanceof Pasajero) {
-            menu = new MenUsuario();
+            menu = new MenUsuario(user);
             menu.menuPasajero();
         } else {
             System.out.println("You don't have access to this folder");
