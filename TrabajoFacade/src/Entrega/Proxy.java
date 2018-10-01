@@ -93,11 +93,11 @@ class Proxy implements IMenu {
         }
     }
 
-    public ArrayList<Usuario> getUsuarios() {
+    public ArrayList<Usuario> getusuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(ArrayList<Usuario> usuarios) {
+    public void setusuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 

@@ -11,7 +11,7 @@ package Entrega;
  */
 public class AdapterAdmin extends Usuario {
 
-    private static Admin adapterAdmin;
+    private Admin adapterAdmin;
 
     public AdapterAdmin() {
         super();

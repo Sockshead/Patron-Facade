@@ -10,27 +10,27 @@ import javax.swing.JOptionPane;
 
 public class Facade {
 
-    public ArrayList<Usuario> usuarios = new ArrayList<>();
+    public ArrayList<Usuario> misUsuarios = new ArrayList<>();
 
     public void agregarConductor(String correo, String password) throws Exception {
         boolean existe = false;
         boolean agregado = false;
         Usuario usuario = new Conductor();
-        if (usuarios.isEmpty()) {
+        if (misUsuarios.isEmpty()) {
             usuario.adicionar(correo, password);
-            if (usuarios.add(usuario)) {
+            if (misUsuarios.add(usuario)) {
                 agregado = true;
             }
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
-                Usuario us = usuarios.get(i);
+            for (int i = 0; i < misUsuarios.size(); i++) {
+                Usuario us = misUsuarios.get(i);
                 if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Conductor) {
                     existe = true;
                 }
             }
             if (!existe) {
                 usuario.adicionar(correo, password);
-                if (usuarios.add(usuario)) {
+                if (misUsuarios.add(usuario)) {
                     agregado = true;
                 }
             }
@@ -48,22 +48,22 @@ public class Facade {
         boolean agregado = false;
         Usuario usuario = new Pasajero();
 
-        if (usuarios.isEmpty()) {
+        if (misUsuarios.isEmpty()) {
             usuario.adicionar(correo, password);
-            if (usuarios.add(usuario)) {
+            if (misUsuarios.add(usuario)) {
                 agregado = true;
             }
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
+            for (int i = 0; i < misUsuarios.size(); i++) {
                 System.out.println("a tato le tiembla el cora");
-                Usuario us = usuarios.get(i);
+                Usuario us = misUsuarios.get(i);
                 if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Pasajero) {
                     existe = true;
                 }
             }
             if (!existe) {
                 usuario.adicionar(correo, password);
-                if (usuarios.add(usuario)) {
+                if (misUsuarios.add(usuario)) {
                     agregado = true;
                 }
             }
@@ -81,22 +81,22 @@ public class Facade {
         boolean agregado = false;
         Usuario usuario = new AdapterAdmin();
 
-        if (usuarios.isEmpty()) {
+        if (misUsuarios.isEmpty()) {
             usuario.adicionar(correo, password);
-            if (usuarios.add(usuario)) {
+            if (misUsuarios.add(usuario)) {
                 agregado = true;
             }
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
+            for (int i = 0; i < misUsuarios.size(); i++) {
                 System.out.println("a tato le tiembla el cora");
-                Usuario us = usuarios.get(i);
+                Usuario us = misUsuarios.get(i);
                 if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof AdapterAdmin) {
                     existe = true;
                 }
             }
             if (!existe) {
                 usuario.adicionar(correo, password);
-                if (usuarios.add(usuario)) {
+                if (misUsuarios.add(usuario)) {
                     agregado = true;
                 }
             }
@@ -112,19 +112,20 @@ public class Facade {
     public void modConductor(String correo, String password) throws Exception {
         boolean existe = false;
         Usuario usuario = null;
-        if (usuarios.isEmpty()) {
+        
+        if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
-                usuario = usuarios.get(i);
+            for (int i = 0; i < misUsuarios.size(); i++) {
+                usuario = misUsuarios.get(i);
                 if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
                     existe = true;
                 }
             }
             if (existe) {
-                usuarios.remove(usuario);
+                misUsuarios.remove(usuario);
                 usuario.modificar(password);
-                usuarios.add(usuario);
+                misUsuarios.add(usuario);
             }
         }
         if (!existe) {
@@ -135,19 +136,20 @@ public class Facade {
     public void modPasajero(String correo, String password) throws Exception {
         boolean existe = false;
         Usuario usuario = null;
-        if (usuarios.isEmpty()) {
+        
+        if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
-                usuario = usuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
+            for (int i = 0; i < misUsuarios.size(); i++) {
+                usuario = misUsuarios.get(i);
+                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Pasajero) {
                     existe = true;
                 }
             }
             if (existe) {
-                usuarios.remove(usuario);
+                misUsuarios.remove(usuario);
                 usuario.modificar(password);
-                usuarios.add(usuario);
+                misUsuarios.add(usuario);
             }
         }
         if (!existe) {
@@ -158,19 +160,20 @@ public class Facade {
     public void modAdministrador(String correo, String password) throws Exception {
         boolean existe = false;
         Usuario usuario = null;
-        if (usuarios.isEmpty()) {
+        
+        if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
-                usuario = usuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
+            for (int i = 0; i < misUsuarios.size(); i++) {
+                usuario = misUsuarios.get(i);
+                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof AdapterAdmin) {
                     existe = true;
                 }
             }
             if (existe) {
-                usuarios.remove(usuario);
+                misUsuarios.remove(usuario);
                 usuario.modificar(password);
-                usuarios.add(usuario);
+                misUsuarios.add(usuario);
             }
         }
         if (!existe) {
@@ -183,11 +186,11 @@ public class Facade {
         Usuario usuario = null;
         String found = "";
 
-        if (usuarios.isEmpty()) {
+        if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
-                usuario = usuarios.get(i);
+            for (int i = 0; i < misUsuarios.size(); i++) {
+                usuario = misUsuarios.get(i);
                 if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
                     encontrado = true;
                 }
@@ -208,12 +211,12 @@ public class Facade {
         Usuario usuario = null;
         String found = "";
 
-        if (usuarios.isEmpty()) {
+        if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
-                usuario = usuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
+            for (int i = 0; i < misUsuarios.size(); i++) {
+                usuario = misUsuarios.get(i);
+                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Pasajero) {
                     encontrado = true;
                 }
             }
@@ -222,7 +225,7 @@ public class Facade {
             }
         }
         if (!encontrado) {
-            throw new Exception("Conductor con el correo " + correo + " no existe.");
+            throw new Exception("Pasajero con el correo " + correo + " no existe.");
         }
         return found;
     }
@@ -232,12 +235,12 @@ public class Facade {
         Usuario usuario = null;
         String found = "";
 
-        if (usuarios.isEmpty()) {
+        if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
         } else {
-            for (int i = 0; i < usuarios.size(); i++) {
-                usuario = usuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
+            for (int i = 0; i < misUsuarios.size(); i++) {
+                usuario = misUsuarios.get(i);
+                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof AdapterAdmin) {
                     encontrado = true;
                 }
             }
@@ -246,7 +249,7 @@ public class Facade {
             }
         }
         if (!encontrado) {
-            throw new Exception("Conductor con el correo " + correo + " no existe.");
+            throw new Exception("Administrador con el correo " + correo + " no existe.");
         }
         return found;
     }
