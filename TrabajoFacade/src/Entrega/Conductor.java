@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabajofacade;
+package Entrega;
 
 /**
  *
  * @author Santiago
  */
-public class Pasajero extends Usuario {
+public class Conductor extends Usuario {
 
-
-    public Pasajero() {
+    public Conductor() {
         super();
     }
 
