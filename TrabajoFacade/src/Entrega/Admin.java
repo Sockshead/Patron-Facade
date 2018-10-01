@@ -32,5 +32,7 @@ public class Admin {
         this.pass=password;
     }
 
-
+    public static String getCorr() {
+        return corr;
+    }
 }

@@ -77,7 +77,7 @@ public class Facade {
     }
 
     public void agregarAdministador(String correo, String password) throws Exception {
-        boolean existe = false;
+         boolean existe = false;
         boolean agregado = false;
         Usuario usuario = new AdapterAdmin();
 

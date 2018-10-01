@@ -21,6 +21,7 @@ public class AdapterAdmin extends Usuario {
     public void adicionar(String correo, String password) {
         adapterAdmin.crear(correo, password);
 
+        
     }
 
     public void modificar(String password) {
@@ -31,5 +32,9 @@ public class AdapterAdmin extends Usuario {
         String pass = this.adapterAdmin.leer(correo);
 
         return pass;
+    }
+    
+    public String getCorreo(){
+       return adapterAdmin.getCorr();
     }
 }

@@ -44,7 +44,7 @@ class Proxy implements IMenu {
 
         for (int i = 0; i < usuarios.size(); i++) {
             us = usuarios.get(i);
-            if (us.getCorreo().equalsIgnoreCase(usuario) && us.getPass().equalsIgnoreCase(password)) {
+            if (us.getCorreo().equalsIgnoreCase(usuario) && us.consultar(usuario).equalsIgnoreCase(password)) {
                 encontrado = true;
                 user = us;
                 this.performOperations();
