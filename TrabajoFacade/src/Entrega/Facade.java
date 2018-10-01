@@ -182,8 +182,6 @@ public class Facade {
         boolean encontrado = false;
         Usuario usuario = null;
         String found = "";
-        
-        System.out.println(correo);
 
         if (usuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
@@ -205,6 +203,7 @@ public class Facade {
     }
 
     public String consultarPasajero(String correo) throws Exception {
+
         boolean encontrado = false;
         Usuario usuario = null;
         String found = "";

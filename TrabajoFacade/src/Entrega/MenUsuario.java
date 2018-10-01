@@ -4,11 +4,12 @@ import javax.swing.JOptionPane;
 
 public class MenUsuario {
 
-    private Facade fac = new Facade();
+    private Facade fac;
     private Usuario usuario;
 
-    public MenUsuario(Usuario usuario) {
+    public MenUsuario(Usuario usuario, Facade fac) {
         this.usuario = usuario;
+        this.fac=fac;
     }
 
     public void menuConductor() {
