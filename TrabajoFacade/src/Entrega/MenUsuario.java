@@ -12,7 +12,7 @@ public class MenUsuario {
         this.fac=fac;
     }
 
-    public void menuConductor() {
+    public void menuConductor() { 
         char opcion;
         do {
             String x = JOptionPane.showInputDialog("=======MENU CONDUCTOR=========\n"

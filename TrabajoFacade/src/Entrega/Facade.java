@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entrega;
 
 import java.util.ArrayList;
@@ -88,15 +83,16 @@ public class Facade {
             }
         } else {
             for (int i = 0; i < misUsuarios.size(); i++) {
-                System.out.println("a tato le tiembla el cora");
                 Usuario us = misUsuarios.get(i);
                 if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof AdapterAdmin) {
+                    System.out.println("a tato le tiembla el cora y te encontre");
                     existe = true;
                 }
             }
             if (!existe) {
                 usuario.adicionar(correo, password);
                 if (misUsuarios.add(usuario)) {
+                    System.out.println("a tato le tiembla el cora y no te encontre. por lo cual te agregue");
                     agregado = true;
                 }
             }
