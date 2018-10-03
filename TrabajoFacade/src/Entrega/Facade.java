@@ -5,20 +5,23 @@ import javax.swing.JOptionPane;
 
 public class Facade {
 
-    public ArrayList<Usuario> misUsuarios = new ArrayList<>();
+    public ArrayList<IUsuario> misUsuarios = new ArrayList<>();
+    public FactoryUsuarios usuarios=new FactoryUsuarios();
 
-    public void agregarConductor(String correo, String password) throws Exception {
+    public void agregarConductor(String correo, String password,String ID) throws Exception {
         boolean existe = false;
         boolean agregado = false;
-        Usuario usuario = new Conductor();
-        if (misUsuarios.isEmpty()) {
+        IUsuario usuario = new Conductor();
+        usuario.adicionar(correo, password);
+        usuarios.agregarUsuario(ID, usuario);
+       /* if (misUsuarios.isEmpty()) {
             usuario.adicionar(correo, password);
             if (misUsuarios.add(usuario)) {
                 agregado = true;
             }
         } else {
             for (int i = 0; i < misUsuarios.size(); i++) {
-                Usuario us = misUsuarios.get(i);
+                IUsuario us = misUsuarios.get(i);
                 if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Conductor) {
                     existe = true;
                 }
@@ -35,7 +38,7 @@ public class Facade {
         }
         if (!agregado) {
             throw new Exception("Conductor no agregado.");
-        }
+        }*/
     }
 
     public void agregarPasajero(String correo, String password) throws Exception {
@@ -51,7 +54,7 @@ public class Facade {
         } else {
             for (int i = 0; i < misUsuarios.size(); i++) {
                 System.out.println("a tato le tiembla el cora");
-                Usuario us = misUsuarios.get(i);
+                IUsuario us = misUsuarios.get(i);
                 if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Pasajero) {
                     existe = true;
                 }
@@ -83,7 +86,7 @@ public class Facade {
             }
         } else {
             for (int i = 0; i < misUsuarios.size(); i++) {
-                Usuario us = misUsuarios.get(i);
+                IUsuario us = misUsuarios.get(i);
                 if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof AdapterAdmin) {
                     System.out.println("a tato le tiembla el cora y te encontre");
                     existe = true;
@@ -107,7 +110,7 @@ public class Facade {
 
     public void modConductor(String correo, String password) throws Exception {
         boolean existe = false;
-        Usuario usuario = null;
+        IUsuario usuario = null;
         
         if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
@@ -131,7 +134,7 @@ public class Facade {
 
     public void modPasajero(String correo, String password) throws Exception {
         boolean existe = false;
-        Usuario usuario = null;
+        IUsuario usuario = null;
         
         if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
@@ -155,7 +158,7 @@ public class Facade {
 
     public void modAdministrador(String correo, String password) throws Exception {
         boolean existe = false;
-        Usuario usuario = null;
+        IUsuario usuario = null;
         
         if (misUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
@@ -179,7 +182,7 @@ public class Facade {
 
     public String consultarConductor(String correo) throws Exception {
         boolean encontrado = false;
-        Usuario usuario = null;
+        IUsuario usuario = null;
         String found = "";
 
         if (misUsuarios.isEmpty()) {
@@ -204,7 +207,7 @@ public class Facade {
     public String consultarPasajero(String correo) throws Exception {
 
         boolean encontrado = false;
-        Usuario usuario = null;
+        IUsuario usuario = null;
         String found = "";
 
         if (misUsuarios.isEmpty()) {
@@ -228,7 +231,7 @@ public class Facade {
 
     public String consultarAdministrador(String correo) throws Exception {
         boolean encontrado = false;
-        Usuario usuario = null;
+        IUsuario usuario = null;
         String found = "";
 
         if (misUsuarios.isEmpty()) {

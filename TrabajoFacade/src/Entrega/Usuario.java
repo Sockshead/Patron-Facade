@@ -9,7 +9,7 @@ package Entrega;
  *
  * @author JUan Camilo Posada
  */
-public abstract class Usuario {
+public abstract class Usuario implements IUsuario{
 
     private String Correo;
     private String Pass;

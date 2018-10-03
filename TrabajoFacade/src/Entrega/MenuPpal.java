@@ -6,6 +6,7 @@ public class MenuPpal {
 
     private String correo;
     private String password;
+    private String ID;
     private Proxy prox;
 
     public static void main(String[] args) {
@@ -43,6 +44,7 @@ public class MenuPpal {
     }
 
     public void inicioSesion() {
+        ID = JOptionPane.showInputDialog("Ingrese su cedula:");
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
@@ -82,6 +84,7 @@ public class MenuPpal {
     }
 
     public void casoNuevoConductor() {
+        ID = JOptionPane.showInputDialog("Ingrese su cedula:");
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
