@@ -19,7 +19,7 @@ public class MenUsuario {
         do {
             String x = JOptionPane.showInputDialog("=======MENU CONDUCTOR=========\n"
                     + "1. Rutas \n"
-                    + "2. Historial viajes \n"
+                    + "2. Pagos \n"
                     + "3. Modificar \n"
                     + "4. Consultar \n"
                     + "0. SALIR "
@@ -30,15 +30,15 @@ public class MenUsuario {
                     this.rutasC();
                     break;
                 case '2':
-                    System.out.println("WIP");
+                    JOptionPane.showMessageDialog(null,"WIP");
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
                     try {
                         fac.modConductor(usuario.getCorreo(), pass, ID);
-                        System.out.println("Conductor Modificado Exitosamente y a tato le tiembla el cora");
+                        JOptionPane.showMessageDialog(null,"Conductor Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(null,e.getMessage());
                     }
                     break;
                 case '4':
@@ -46,7 +46,7 @@ public class MenUsuario {
                         String resp = fac.consultarConductor(usuario.getCorreo(), ID);
                         JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Conductor.");
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(null,e.getMessage());
                     }
                     break;
                 case '0':
@@ -65,7 +65,7 @@ public class MenUsuario {
         do {
             String x = JOptionPane.showInputDialog("=======MENU PASAJERO=========\n"
                     + "1. Rutas \n"
-                    + "2. Historial viajes \n"
+                    + "2. Pagos \n"
                     + "3. Modificar \n"
                     + "4. Consultar \n"
                     + "0. SALIR "
@@ -76,15 +76,15 @@ public class MenUsuario {
                     this.rutasP();
                     break;
                 case '2':
-                    System.out.println("WIP");
+                    JOptionPane.showMessageDialog(null,"WIP");
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
                     try {
                         fac.modPasajero(usuario.getCorreo(), pass, ID);
-                        System.out.println("Pasajero Modificado Exitosamente y a tato le tiembla el cora");
+                        JOptionPane.showMessageDialog(null,"Pasajero Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(null,e.getMessage());
                     }
                     break;
                 case '4':
@@ -92,7 +92,7 @@ public class MenUsuario {
                         String resp = fac.consultarPasajero(usuario.getCorreo(), ID);
                         JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Pasajero.");
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(null,e.getMessage());
                     }
                     break;
                 case '0':
@@ -119,18 +119,18 @@ public class MenUsuario {
             opcion = x.charAt(0);
             switch (opcion) {
                 case '1':
-                    System.out.println("WIP");
+                    JOptionPane.showMessageDialog(null,"WIP");
                     break;
                 case '2':
-                    System.out.println("WIP");
+                    JOptionPane.showMessageDialog(null,"WIP");
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
                     try {
                         fac.modAdministrador(usuario.getCorreo(), pass, ID);
-                        System.out.println("Administrador Modificado Exitosamente y a tato le tiembla el cora");
+                        JOptionPane.showMessageDialog(null,"Administrador Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(null,e.getMessage());
                     }
                     break;
                 case '4':
@@ -138,7 +138,7 @@ public class MenUsuario {
                         String resp = fac.consultarAdministrador(usuario.getCorreo(), ID);
                         JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Administrador.");
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(null,e.getMessage());
                     }
                     break;
                 case '0':
@@ -157,12 +157,10 @@ public class MenUsuario {
             String entrada = JOptionPane.showInputDialog("=======Menu Rutas Conductor=========\n"
                     + "1. Guardar nueva ruta \n "
                     + "2. Ver rutas \n "
-                    + "0. Salir");
+                    + "0. Regresar");
             opcion = entrada.charAt(0);
             switch (opcion) {
                 case '0':
-                    JOptionPane.showMessageDialog(null, "CHAO PESCAO..!", "Despedida", 2);
-                    System.exit(0);
                     break;
                 case '1':
                     String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la ruta:");
@@ -171,13 +169,11 @@ public class MenUsuario {
                     String fecha = JOptionPane.showInputDialog("Ingrese la fecha de la ruta:");
                     String hora = JOptionPane.showInputDialog("Ingrese la hora de la ruta:");
                     String destino = JOptionPane.showInputDialog("Ingrese el nombre del destino:");
-                    ruta = fac.newRuta(ID,nombre, valor, cupos, fecha, hora, destino);
+                    ruta = fac.newRuta(ID, nombre, valor, cupos, fecha, hora, destino);
                     this.addCalle(ruta);
                     break;
                 case '2':
-                    fac.verRutas(ID);
-                    break;
-                case '3':
+                    JOptionPane.showMessageDialog(null, fac.verRutas(ID));
                     break;
             }
         } while (opcion != '0');
@@ -204,42 +200,31 @@ public class MenUsuario {
                     fac.newCalle(ruta, oX, oY, dX, dY, nombre, disM, tiempo);
                     break;
                 case '2':
-                    fac.mostrarRuta(ruta);
+                    JOptionPane.showMessageDialog(null, fac.mostrarRuta(ruta));
                     break;
             }
-        } while (opcion != '0');
+        } while (opcion != '2');
     }
 
     private void rutasP() {
         char opcion;
         do {
-            String entrada = JOptionPane.showInputDialog("=======Menu RutasPasajero=========\n"
+            String entrada = JOptionPane.showInputDialog("=======Menu Rutas Pasajero=========\n"
                     + "1. Buscar ruta \n "
-                    + "2. Ver viajes \n "
-                    + "0. Salir");
+                    + "2. Ver reserva \n "
+                    + "0. Regresar");
             opcion = entrada.charAt(0);
             switch (opcion) {
                 case '0':
-                    JOptionPane.showMessageDialog(null, "CHAO PESCAO..!", "Despedida", 2);
-                    System.exit(0);
                     break;
                 case '1':
-
+                    String nombre = JOptionPane.showInputDialog(fac.cargarRutas() + "\n Ingrese el nombre de la ruta a seleccionar: ");
+                    JOptionPane.showMessageDialog(null, fac.resvCupo(nombre, ID));
                     break;
                 case '2':
-
-                    break;
-                case '3':
+                    JOptionPane.showMessageDialog(null, fac.verViajePasajero(ID));
                     break;
             }
         } while (opcion != '0');
-    }
-
-    private void verRutas() {
-        Ruta rut;
-        for (int i = 0; i < fac.rutas.size(); i++) {
-            rut = fac.rutas.get(i);
-            rut.mostrar();
-        }
     }
 }

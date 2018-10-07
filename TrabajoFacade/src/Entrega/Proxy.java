@@ -1,6 +1,7 @@
 package Entrega;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 class Proxy implements IMenu {
 
@@ -34,7 +35,7 @@ class Proxy implements IMenu {
             menu = new MenUsuario(user,fac);
             menu.menuPasajero(ID);
         } else {
-            System.out.println("You don't have access to this folder");
+            JOptionPane.showMessageDialog(null,"You don't have access to this folder");
         }
     }
 

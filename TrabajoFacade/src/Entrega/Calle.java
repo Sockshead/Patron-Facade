@@ -1,20 +1,21 @@
 package Entrega;
 
-public class Calle implements Composite{
-    private float oX,oY,dX,dY, disM,velocidad, tiempo;
+public class Calle implements Composite {
+
+    private float oX, oY, dX, dY, disM, velocidad, tiempo;
     private String nombre;
-    
+
     public Calle() {
         setNombre("");
     }
-    
-    public void mostrar(){
-        System.out.println("Coordenada de origen en x: "+this.getoX()+" Coordenada de origen en y: "+this.getoY()+" Coordenada de destino en x: "+this.getdX()
-                +" Coordenada de destino en y: "+this.getdY()+" nombre de calle: "+this.getNombre()+" distancia en metros: "+this.getDisM()
-                +" tiempo en minutos "+this.getTiempo());
+
+    public String mostrar() {
+        return ("\n Coordenada de origen en x: " + this.getoX() + " Coordenada de origen en y: " + this.getoY() + " Coordenada de destino en x: " + this.getdX()
+                + " Coordenada de destino en y: " + this.getdY() + " nombre de calle: " + this.getNombre() + " distancia en metros: " + this.getDisM()
+                + " tiempo en minutos " + this.getTiempo()+"\n");
     }
-    
-    public Calle(float oX,float oY,float dX,float dY,String nombre,float disM, float tiempo){
+
+    public Calle(float oX, float oY, float dX, float dY, String nombre, float disM, float tiempo) {
         setoX(oX);
         setoY(oY);
         setdX(dX);
@@ -80,11 +81,11 @@ public class Calle implements Composite{
         this.disM = disM;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
-    
-    private void setNombre(String nombre){
+
+    private void setNombre(String nombre) {
         this.nombre = nombre;
     }
 }

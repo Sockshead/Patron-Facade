@@ -190,15 +190,60 @@ public class Facade {
         this.rutas.add(ruta);
     }
 
-    public void mostrarRuta(Ruta ruta) {
-        ruta.mostrar();
+    public String mostrarRuta(Ruta ruta) {
+        return ruta.mostrar();
     }
 
-    void verRutas(String ID) {
+    public String verRutas(String ID) {
+        String rut = "";
         for (Ruta ruta : rutas) {
             if (ruta.getIdConductor().equals(ID)) {
-                ruta.mostrar();
+                rut = rut + ruta.mostrar();
             }
         }
+        return rut;
+    }
+
+    public String cargarRutas() {
+        String rut = "";
+        for (Ruta ruta : rutas) {
+            rut = rut + " La ruta con el nombre: " + ruta.getNombre() + " y destino " + ruta.getDestino() + " en la fecha: "
+                    + ruta.getFecha() + " a la hora: " + ruta.getHora() + " con un costo de " + ruta.getValor() + " pesos y "
+                    + ruta.getCupos() + " disponibles. \n";
+        }
+        return rut;
+    }
+
+    public String resvCupo(String nombre, String id) {
+        String resv = "No existe ruta con ese nombre.";
+        for (Ruta ruta : rutas) {
+            if (ruta.getNombre().equalsIgnoreCase(nombre)) {
+                try {
+                    ruta.reservaCupo(id);
+                    resv = "Reserva realizada en la ruta " + nombre + " con exito.";
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+        }
+        return resv;
+    }
+
+    public String verViajePasajero(String id) {
+        Ruta rut = null;
+        String resp = "";
+        for (Ruta ruta : rutas) {
+            for (String pas : ruta.getPasajeros()) {
+                if (pas.equals(id)) {
+                    rut = ruta;
+                    resp = "Usted tiene una reserva en la ruta con el nombre: " + rut.getNombre() + " y destino " + rut.getDestino()
+                            + " en la fecha: " + rut.getFecha() + " a la hora: " + rut.getHora() + " con un costo de " + rut.getValor() + " pesos.\n";
+                }
+            }
+        }
+        if (rut == null) {
+            resp = "Usted no tiene ninguna reserva en el momento.";
+        }
+        return resp;
     }
 }

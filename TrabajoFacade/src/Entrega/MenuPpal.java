@@ -50,7 +50,7 @@ public class MenuPpal {
         try {
             prox.validarUs(correo, password, ID);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
 
@@ -65,7 +65,6 @@ public class MenuPpal {
             opcion = entrada.charAt(0);
             switch (opcion) {
                 case '0':
-                    this.menu();
                     break;
                 case '1':
                     this.casoNuevoConductor();
@@ -89,9 +88,9 @@ public class MenuPpal {
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
             prox.addUs(correo, password, ID, "conductor");
-            System.out.println("Conductor Agregado Exitosamente y a tato le tiembla el cora");
+            JOptionPane.showMessageDialog(null,"Conductor Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
 
@@ -101,9 +100,9 @@ public class MenuPpal {
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
             prox.addUs(correo, password, ID, "pasajero");
-            System.out.println("Pasajero Agregado Exitosamente y a tato le tiembla el cora");
+            JOptionPane.showMessageDialog(null,"Pasajero Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
 
@@ -113,9 +112,9 @@ public class MenuPpal {
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
             prox.addUs(correo, password, ID, "admin");
-            System.out.println("Administrador Agregado Exitosamente y a tato le tiembla el cora");
+            JOptionPane.showMessageDialog(null,"Administrador Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
 }
