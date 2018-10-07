@@ -177,8 +177,8 @@ public class Facade {
         return found;
     }
 
-    public Ruta newRuta(String nombre, float valor, int cupos, String fecha, String hora, String destino) {
-        Ruta ruta = new Ruta(nombre, valor, cupos, fecha, hora, destino);
+    public Ruta newRuta(String ID, String nombre, float valor, int cupos, String fecha, String hora, String destino) {
+        Ruta ruta = new Ruta(ID, nombre, valor, cupos, fecha, hora, destino);
         this.rutas.add(ruta);
         return ruta;
     }
@@ -189,8 +189,16 @@ public class Facade {
         ruta.add(calle);
         this.rutas.add(ruta);
     }
-    
-    public void mostrarRuta(Ruta ruta){
+
+    public void mostrarRuta(Ruta ruta) {
         ruta.mostrar();
+    }
+
+    void verRutas(String ID) {
+        for (Ruta ruta : rutas) {
+            if (ruta.getIdConductor().equals(ID)) {
+                ruta.mostrar();
+            }
+        }
     }
 }

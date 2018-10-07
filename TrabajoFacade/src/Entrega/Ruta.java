@@ -3,6 +3,7 @@ package Entrega;
 import java.util.ArrayList;
 
 public class Ruta implements Composite {
+    private String idConductor;
     private String nombre;
     private float valor;
     private int cupos;
@@ -12,7 +13,8 @@ public class Ruta implements Composite {
     private String destino;
     private ArrayList <Composite> componentes;
     
-    public Ruta(String nombre, float valor, int cupos, String fecha, String hora, String destino){
+    public Ruta(String idConductor, String nombre, float valor, int cupos, String fecha, String hora, String destino){
+        this.setIdConductor(idConductor);
         this.setNombre(nombre);
         this.setValor(valor);
         this.setCupos(cupos);
@@ -101,4 +103,13 @@ public class Ruta implements Composite {
     public void setDestino(String destino) {
         this.destino = destino;
     }
+
+    public String getIdConductor() {
+        return idConductor;
+    }
+
+    public void setIdConductor(String idConductor) {
+        this.idConductor = idConductor;
+    }
+    
 }

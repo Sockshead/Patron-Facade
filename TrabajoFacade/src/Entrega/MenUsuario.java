@@ -60,6 +60,8 @@ public class MenUsuario {
 
     public void menuPasajero(String ID) {
         char opcion;
+        this.ID = ID;
+
         do {
             String x = JOptionPane.showInputDialog("=======MENU PASAJERO=========\n"
                     + "1. Rutas \n"
@@ -104,6 +106,8 @@ public class MenUsuario {
 
     public void menuAdmin(String ID) {
         char opcion;
+        this.ID = ID;
+
         do {
             String x = JOptionPane.showInputDialog("=======MENU ADMINISTRADOR=========\n"
                     + "1. Ingresar multa \n"
@@ -167,13 +171,11 @@ public class MenUsuario {
                     String fecha = JOptionPane.showInputDialog("Ingrese la fecha de la ruta:");
                     String hora = JOptionPane.showInputDialog("Ingrese la hora de la ruta:");
                     String destino = JOptionPane.showInputDialog("Ingrese el nombre del destino:");
-
-                    ruta = fac.newRuta(nombre, valor, cupos, fecha, hora, destino);
+                    ruta = fac.newRuta(ID,nombre, valor, cupos, fecha, hora, destino);
                     this.addCalle(ruta);
-                    
+                    break;
                 case '2':
-                    System.out.println("Hola");
-                    //verRutas();
+                    fac.verRutas(ID);
                     break;
                 case '3':
                     break;
