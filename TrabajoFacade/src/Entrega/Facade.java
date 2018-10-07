@@ -5,251 +5,193 @@ import javax.swing.JOptionPane;
 
 public class Facade {
 
-    public ArrayList<IUsuario> misUsuarios = new ArrayList<>();
-    public FactoryUsuarios usuarios=new FactoryUsuarios();
+    protected ArrayList<IUsuario> misUsuarios = new ArrayList<>();
+    protected ArrayList<Ruta> rutas;
+    protected FactoryUsuarios usuarios = new FactoryUsuarios();
 
-    public void agregarConductor(String correo, String password,String ID) throws Exception {
+    public void agregarConductor(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         boolean agregado = false;
-        IUsuario usuario = new Conductor();
-        usuario.adicionar(correo, password);
-        usuarios.agregarUsuario(ID, usuario);
-       /* if (misUsuarios.isEmpty()) {
+
+        if (usuarios.buscar(ID) != null) {
+            existe = true;
+        }
+
+        if (!existe) {
+            IUsuario usuario = new Conductor();
             usuario.adicionar(correo, password);
-            if (misUsuarios.add(usuario)) {
-                agregado = true;
-            }
+            usuarios.agregarUsuario(ID, usuario);
+            agregado = true;
         } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                IUsuario us = misUsuarios.get(i);
-                if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Conductor) {
-                    existe = true;
-                }
-            }
-            if (!existe) {
-                usuario.adicionar(correo, password);
-                if (misUsuarios.add(usuario)) {
-                    agregado = true;
-                }
-            }
+            throw new Exception("Conductor con la cedula " + ID + " ya existe.");
         }
-        if (existe) {
-            throw new Exception("Conductor con el correo " + correo + " ya existe.");
-        }
+
         if (!agregado) {
             throw new Exception("Conductor no agregado.");
-        }*/
+        }
     }
 
-    public void agregarPasajero(String correo, String password) throws Exception {
+    public void agregarPasajero(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         boolean agregado = false;
-        Usuario usuario = new Pasajero();
 
-        if (misUsuarios.isEmpty()) {
+        if (usuarios.buscar(ID) != null) {
+            existe = true;
+        }
+
+        if (!existe) {
+            IUsuario usuario = new Pasajero();
             usuario.adicionar(correo, password);
-            if (misUsuarios.add(usuario)) {
-                agregado = true;
-            }
+            usuarios.agregarUsuario(ID, usuario);
+            agregado = true;
         } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                System.out.println("a tato le tiembla el cora");
-                IUsuario us = misUsuarios.get(i);
-                if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof Pasajero) {
-                    existe = true;
-                }
-            }
-            if (!existe) {
-                usuario.adicionar(correo, password);
-                if (misUsuarios.add(usuario)) {
-                    agregado = true;
-                }
-            }
+            throw new Exception("Pasajero con la cedula " + ID + " ya existe.");
         }
-        if (existe) {
-            throw new Exception("Pasajero con el correo " + correo + " ya existe.");
-        }
+
         if (!agregado) {
             throw new Exception("Pasajero no agregado.");
         }
     }
 
-    public void agregarAdministador(String correo, String password) throws Exception {
+    public void agregarAdministador(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         boolean agregado = false;
-        Usuario usuario = new AdapterAdmin();
 
-        if (misUsuarios.isEmpty()) {
+        if (usuarios.buscar(ID) != null) {
+            existe = true;
+        }
+
+        if (!existe) {
+            IUsuario usuario = new AdapterAdmin();
             usuario.adicionar(correo, password);
-            if (misUsuarios.add(usuario)) {
-                agregado = true;
-            }
+            usuarios.agregarUsuario(ID, usuario);
+            agregado = true;
         } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                IUsuario us = misUsuarios.get(i);
-                if (us.getCorreo().equalsIgnoreCase(correo) && us instanceof AdapterAdmin) {
-                    System.out.println("a tato le tiembla el cora y te encontre");
-                    existe = true;
-                }
-            }
-            if (!existe) {
-                usuario.adicionar(correo, password);
-                if (misUsuarios.add(usuario)) {
-                    System.out.println("a tato le tiembla el cora y no te encontre. por lo cual te agregue");
-                    agregado = true;
-                }
-            }
+            throw new Exception("Administrador con la cedula " + ID + " ya existe.");
         }
-        if (existe) {
-            throw new Exception("Administrador con el correo " + correo + " ya existe.");
-        }
+
         if (!agregado) {
             throw new Exception("Administrador no agregado.");
         }
     }
 
-    public void modConductor(String correo, String password) throws Exception {
+    public void modConductor(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
-        
-        if (misUsuarios.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
-        } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                usuario = misUsuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
-                    existe = true;
-                }
-            }
-            if (existe) {
-                misUsuarios.remove(usuario);
-                usuario.modificar(password);
-                misUsuarios.add(usuario);
-            }
+
+        usuario = usuarios.buscar(ID);
+
+        if (usuario != null) {
+            existe = true;
+            usuario.modificar(password);
+            usuarios.actualizarUsuario(ID, usuario);
         }
         if (!existe) {
-            throw new Exception("Conductor con el correo " + correo + " no existe.");
+            throw new Exception("Conductor con la cedula " + ID + " no existe.");
         }
     }
 
-    public void modPasajero(String correo, String password) throws Exception {
+    public void modPasajero(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
-        
-        if (misUsuarios.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
-        } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                usuario = misUsuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Pasajero) {
-                    existe = true;
-                }
-            }
-            if (existe) {
-                misUsuarios.remove(usuario);
-                usuario.modificar(password);
-                misUsuarios.add(usuario);
-            }
+
+        usuario = usuarios.buscar(ID);
+
+        if (usuario != null) {
+            existe = true;
+            usuario.modificar(password);
+            usuarios.actualizarUsuario(ID, usuario);
         }
         if (!existe) {
-            throw new Exception("Pasajero con el correo " + correo + " no existe.");
+            throw new Exception("Pasajero con la cedula " + ID + " no existe.");
         }
     }
 
-    public void modAdministrador(String correo, String password) throws Exception {
+    public void modAdministrador(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
-        
-        if (misUsuarios.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
-        } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                usuario = misUsuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof AdapterAdmin) {
-                    existe = true;
-                }
-            }
-            if (existe) {
-                misUsuarios.remove(usuario);
-                usuario.modificar(password);
-                misUsuarios.add(usuario);
-            }
+
+        usuario = usuarios.buscar(ID);
+
+        if (usuario != null) {
+            existe = true;
+            usuario.modificar(password);
+            usuarios.actualizarUsuario(ID, usuario);
         }
         if (!existe) {
-            throw new Exception("Administrador con el correo " + correo + " no existe.");
+            throw new Exception("Administrador con la cedula " + ID + " no existe.");
         }
     }
 
-    public String consultarConductor(String correo) throws Exception {
+    public String consultarConductor(String correo, String ID) throws Exception {
         boolean encontrado = false;
         IUsuario usuario = null;
         String found = "";
 
-        if (misUsuarios.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
-        } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                usuario = misUsuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Conductor) {
-                    encontrado = true;
-                }
-            }
-            if (encontrado) {
-                found = usuario.consultar(correo);
-            }
+        usuario = usuarios.buscar(ID);
+
+        if (usuario != null) {
+            found = usuario.consultar(correo);
+            encontrado = true;
         }
         if (!encontrado) {
-            throw new Exception("Conductor con el correo " + correo + " no existe.");
+            throw new Exception("Conductor con cedula " + ID + " no existe.");
         }
+
         return found;
     }
 
-    public String consultarPasajero(String correo) throws Exception {
-
+    public String consultarPasajero(String correo, String ID) throws Exception {
         boolean encontrado = false;
         IUsuario usuario = null;
         String found = "";
 
-        if (misUsuarios.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
-        } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                usuario = misUsuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof Pasajero) {
-                    encontrado = true;
-                }
-            }
-            if (encontrado) {
-                found = usuario.consultar(correo);
-            }
+        usuario = usuarios.buscar(ID);
+
+        if (usuario != null) {
+            found = usuario.consultar(correo);
+            encontrado = true;
         }
         if (!encontrado) {
-            throw new Exception("Pasajero con el correo " + correo + " no existe.");
+            throw new Exception("Pasajero con la cedula " + ID + " no existe.");
         }
+
         return found;
     }
 
-    public String consultarAdministrador(String correo) throws Exception {
+    public String consultarAdministrador(String correo, String ID) throws Exception {
         boolean encontrado = false;
         IUsuario usuario = null;
         String found = "";
 
-        if (misUsuarios.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay cuentas registradas");
-        } else {
-            for (int i = 0; i < misUsuarios.size(); i++) {
-                usuario = misUsuarios.get(i);
-                if (usuario.getCorreo().equalsIgnoreCase(correo) && usuario instanceof AdapterAdmin) {
-                    encontrado = true;
-                }
-            }
-            if (encontrado) {
-                found = usuario.consultar(correo);
-            }
+        usuario = usuarios.buscar(ID);
+
+        if (usuario != null) {
+            found = usuario.consultar(correo);
+            encontrado = true;
         }
         if (!encontrado) {
-            throw new Exception("Administrador con el correo " + correo + " no existe.");
+            throw new Exception("Administrador con la cedula " + ID + " no existe.");
         }
+
         return found;
+    }
+
+    public Ruta newRuta(String nombre, float valor, int cupos, String fecha, String hora, String destino) {
+        Ruta ruta = new Ruta(nombre, valor, cupos, fecha, hora, destino);
+        this.rutas.add(ruta);
+        
+        return ruta;
+    }
+
+    public void newCalle(Ruta ruta, float oX, float oY, float dX, float dY, String nombre, float disM, float tiempo) {
+        this.rutas.remove(ruta);
+        Composite calle = new Calle(oX, oY, dX, dY, nombre, disM, tiempo);
+        ruta.add(calle);
+        this.rutas.add(ruta);
+    }
+    
+    public void mostrarRuta(Ruta ruta){
+        ruta.mostrar();
     }
 }

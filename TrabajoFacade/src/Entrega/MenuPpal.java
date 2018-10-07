@@ -48,7 +48,7 @@ public class MenuPpal {
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
-            prox.validarUs(correo, password);
+            prox.validarUs(correo, password, ID);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -88,7 +88,7 @@ public class MenuPpal {
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
-            prox.addUs(correo, password, "conductor");
+            prox.addUs(correo, password, ID, "conductor");
             System.out.println("Conductor Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -96,10 +96,11 @@ public class MenuPpal {
     }
 
     public void casoNuevoPasajero() {
+        ID = JOptionPane.showInputDialog("Ingrese su cedula:");
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
-            prox.addUs(correo, password, "pasajero");
+            prox.addUs(correo, password, ID, "pasajero");
             System.out.println("Pasajero Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -107,10 +108,11 @@ public class MenuPpal {
     }
 
     public void casoNuevoAdmin() {
+        ID = JOptionPane.showInputDialog("Ingrese su cedula:");
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
         try {
-            prox.addUs(correo, password, "admin");
+            prox.addUs(correo, password, ID, "admin");
             System.out.println("Administrador Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
             System.out.println(e.getMessage());

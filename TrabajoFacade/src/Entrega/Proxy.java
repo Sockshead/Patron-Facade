@@ -9,6 +9,7 @@ class Proxy implements IMenu {
     private Facade fac;
     MenUsuario menu;
     Usuario user;
+    String ID;
 
     public Proxy() {
         usuarios = new ArrayList();
@@ -25,19 +26,19 @@ class Proxy implements IMenu {
     public void performOperations() {
         if (user instanceof AdapterAdmin) {
             menu = new MenUsuario(user,fac);
-            menu.menuAdmin();
+            menu.menuAdmin(ID);
         } else if (user instanceof Conductor) {
             menu = new MenUsuario(user,fac);
-            menu.menuConductor();
+            menu.menuConductor(ID);
         } else if (user instanceof Pasajero) {
             menu = new MenUsuario(user,fac);
-            menu.menuPasajero();
+            menu.menuPasajero(ID);
         } else {
             System.out.println("You don't have access to this folder");
         }
     }
 
-    public void validarUs(String usuario, String password) throws Exception {
+    public void validarUs(String usuario, String password, String ID) throws Exception {
         Usuario us;
         boolean encontrado = false;
 
@@ -46,6 +47,7 @@ class Proxy implements IMenu {
             if (us.getCorreo().equalsIgnoreCase(usuario) && us.consultar(usuario).equalsIgnoreCase(password)) {
                 encontrado = true;
                 user = us;
+                this.ID = ID;
                 this.performOperations();
             }
         }
@@ -54,12 +56,12 @@ class Proxy implements IMenu {
         }
     }
 
-    public void addUs(String correo, String password, String tipo) throws Exception {
+    public void addUs(String correo, String password, String ID, String tipo) throws Exception {
         boolean agregado = false;
         Usuario user;
         if (tipo.equalsIgnoreCase("conductor")) {
             try {
-                fac.agregarConductor(correo, password);
+                fac.agregarConductor(correo, password, ID);
                 user = new Conductor();
                 user.adicionar(correo, password);
                 usuarios.add(user);
@@ -69,7 +71,7 @@ class Proxy implements IMenu {
             agregado = true;
         } else if (tipo.equalsIgnoreCase("pasajero")) {
             try {
-                fac.agregarPasajero(correo, password);
+                fac.agregarPasajero(correo, password, ID);
                 user = new Pasajero();
                 user.adicionar(correo, password);
                 usuarios.add(user);
@@ -79,7 +81,7 @@ class Proxy implements IMenu {
             agregado = true;
         } else if (tipo.equalsIgnoreCase("admin")) {
             try {
-                fac.agregarAdministador(correo, password);
+                fac.agregarAdministador(correo, password, ID);
                 user = new AdapterAdmin();
                 user.adicionar(correo, password);
                 usuarios.add(user);
@@ -92,15 +94,7 @@ class Proxy implements IMenu {
             throw new Exception("Error agregando usuario");
         }
     }
-
-    public ArrayList<Usuario> getusuarios() {
-        return usuarios;
-    }
-
-    public void setusuarios(ArrayList<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
-
+    
     public MenUsuario getMenu() {
         return menu;
     }
