@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class Facade {
 
     protected ArrayList<IUsuario> misUsuarios = new ArrayList<>();
-    protected ArrayList<Ruta> rutas;
+    protected ArrayList<Ruta> rutas = new ArrayList();
     protected FactoryUsuarios usuarios = new FactoryUsuarios();
 
     public void agregarConductor(String correo, String password, String ID) throws Exception {
@@ -180,7 +180,6 @@ public class Facade {
     public Ruta newRuta(String nombre, float valor, int cupos, String fecha, String hora, String destino) {
         Ruta ruta = new Ruta(nombre, valor, cupos, fecha, hora, destino);
         this.rutas.add(ruta);
-        
         return ruta;
     }
 

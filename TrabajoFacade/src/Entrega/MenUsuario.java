@@ -170,9 +170,10 @@ public class MenUsuario {
 
                     ruta = fac.newRuta(nombre, valor, cupos, fecha, hora, destino);
                     this.addCalle(ruta);
-                    break;
+                    
                 case '2':
-                    verRutas();
+                    System.out.println("Hola");
+                    //verRutas();
                     break;
                 case '3':
                     break;
@@ -198,7 +199,6 @@ public class MenUsuario {
                     float velocidad = Float.parseFloat(JOptionPane.showInputDialog("Ingrese la velocidad promedio:"));
                     velocidad = (velocidad * 1000) / 3600;
                     float tiempo = (disM / velocidad) / 60;
-
                     fac.newCalle(ruta, oX, oY, dX, dY, nombre, disM, tiempo);
                     break;
                 case '2':
