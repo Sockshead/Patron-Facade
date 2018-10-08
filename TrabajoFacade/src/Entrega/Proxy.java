@@ -12,11 +12,6 @@ class Proxy implements IMenu {
     Usuario user;
     String ID;
 
-    public Proxy() {
-        usuarios = new ArrayList();
-        fac = new Facade();
-    }
-
     public static Proxy rConstructora() {
         if (instanciaUnica == null) {
             instanciaUnica = new Proxy();
@@ -24,18 +19,23 @@ class Proxy implements IMenu {
         return instanciaUnica;
     }
 
+    public Proxy() {
+        usuarios = new ArrayList();
+        fac = new Facade();
+    }
+
     public void performOperations() {
         if (user instanceof AdapterAdmin) {
-            menu = new MenUsuario(user,fac);
+            menu = new MenUsuario(user, fac);
             menu.menuAdmin(ID);
         } else if (user instanceof Conductor) {
-            menu = new MenUsuario(user,fac);
+            menu = new MenUsuario(user, fac);
             menu.menuConductor(ID);
         } else if (user instanceof Pasajero) {
-            menu = new MenUsuario(user,fac);
+            menu = new MenUsuario(user, fac);
             menu.menuPasajero(ID);
         } else {
-            JOptionPane.showMessageDialog(null,"You don't have access to this folder");
+            JOptionPane.showMessageDialog(null, "You don't have access to this folder");
         }
     }
 
@@ -95,7 +95,23 @@ class Proxy implements IMenu {
             throw new Exception("Error agregando usuario");
         }
     }
+
+    public void modUs(String correo, String password) {
+        for (Usuario us : usuarios) {
+            if (us.getCorreo().equalsIgnoreCase(correo)) {
+                us.modificar(password);
+            }
+        }
+    }
     
+    public void elimUs(String correo) {
+        for (Usuario us : usuarios) {
+            if (us.getCorreo().equalsIgnoreCase(correo)) {
+                usuarios.remove(us);
+            }
+        }
+    }
+
     public MenUsuario getMenu() {
         return menu;
     }

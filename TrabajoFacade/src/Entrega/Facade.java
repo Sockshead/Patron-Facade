@@ -11,6 +11,7 @@ public class Facade {
     protected ArrayList<Ruta> rutas = new ArrayList();
     private ArrayList<component> pagos = new ArrayList();
     protected FactoryUsuarios usuarios = new FactoryUsuarios();
+    private Proxy prox;
 
     public void agregarConductor(String correo, String password, String ID) throws Exception {
         boolean existe = false;
@@ -81,6 +82,7 @@ public class Facade {
     public void modConductor(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
+        prox = Proxy.rConstructora();
 
         usuario = usuarios.buscar(ID);
 
@@ -88,6 +90,7 @@ public class Facade {
             existe = true;
             usuario.modificar(password);
             usuarios.actualizarUsuario(ID, usuario);
+            prox.modUs(correo, password);
         }
         if (!existe) {
             throw new Exception("Conductor con la cedula " + ID + " no existe.");
@@ -97,6 +100,7 @@ public class Facade {
     public void modPasajero(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
+        prox = Proxy.rConstructora();
 
         usuario = usuarios.buscar(ID);
 
@@ -104,6 +108,7 @@ public class Facade {
             existe = true;
             usuario.modificar(password);
             usuarios.actualizarUsuario(ID, usuario);
+            prox.modUs(correo, password);
         }
         if (!existe) {
             throw new Exception("Pasajero con la cedula " + ID + " no existe.");
@@ -113,6 +118,7 @@ public class Facade {
     public void modAdministrador(String correo, String password, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
+        prox = Proxy.rConstructora();
 
         usuario = usuarios.buscar(ID);
 
@@ -120,6 +126,7 @@ public class Facade {
             existe = true;
             usuario.modificar(password);
             usuarios.actualizarUsuario(ID, usuario);
+            prox.modUs(correo, password);
         }
         if (!existe) {
             throw new Exception("Administrador con la cedula " + ID + " no existe.");
@@ -301,5 +308,28 @@ public class Facade {
             }
         }
         return historial;
+    }
+
+    public String elimUs(String id, String idAdmin) {
+        boolean existe = false;
+        prox = Proxy.rConstructora();
+        IUsuario usuario = usuarios.buscar(id);
+        String respuesta = "";
+
+        if (usuario != null) {
+            existe = true;
+            if (id.equalsIgnoreCase(idAdmin)) {
+                respuesta = "No se puede eliminar a usted mismo.";
+            } else {
+                String correo = usuario.getCorreo();
+                usuarios.eliminarUsuario(id);
+                prox.elimUs(correo);
+                respuesta = "El usuario con la cedula " + id + " ha sido eliminado correctamente";
+            }
+        }
+        if (!existe) {
+            respuesta = "Usuario con la cedula " + id + " no existe.";
+        }
+        return respuesta;
     }
 }

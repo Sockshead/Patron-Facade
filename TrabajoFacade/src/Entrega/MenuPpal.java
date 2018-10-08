@@ -14,7 +14,7 @@ public class MenuPpal {
     }
 
     public MenuPpal() {
-        this.prox = new Proxy();
+        this.prox = Proxy.rConstructora();
         this.correo = "";
         this.password = "";
         this.menu();

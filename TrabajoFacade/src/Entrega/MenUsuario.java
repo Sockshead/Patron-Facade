@@ -106,7 +106,7 @@ public class MenUsuario {
 
         do {
             String x = JOptionPane.showInputDialog("=======MENU ADMINISTRADOR=========\n"
-                    + "1. Ingresar multa \n"
+                    + "1. Ver los pagos de un usuario \n"
                     + "2. Cancelar cuenta \n"
                     + "3. Modificar \n"
                     + "4. Consultar \n"
@@ -115,10 +115,16 @@ public class MenUsuario {
             opcion = x.charAt(0);
             switch (opcion) {
                 case '1':
-                    JOptionPane.showMessageDialog(null, "WIP");
+                    String idB = JOptionPane.showInputDialog("Ingrese la cedula del usuario a buscar:");
+                    try {
+                        JOptionPane.showMessageDialog(null, fac.verPagos(idB));
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
                     break;
                 case '2':
-                    JOptionPane.showMessageDialog(null, "WIP");
+                    String id = JOptionPane.showInputDialog("Ingrese la cedula del usuario a eliminar:");
+                    JOptionPane.showMessageDialog(null, fac.elimUs(id, this.ID));
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
@@ -238,9 +244,9 @@ public class MenUsuario {
                     this.rPago();
                     break;
                 case '2':
-                    try{
-                    JOptionPane.showMessageDialog(null, fac.verPagos(ID));
-                    } catch (Exception e){
+                    try {
+                        JOptionPane.showMessageDialog(null, fac.verPagos(ID));
+                    } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
@@ -252,8 +258,8 @@ public class MenUsuario {
             }
         } while (opcion != '0');
     }
-    
-    private void rPago(){
+
+    private void rPago() {
         String resp = "";
         char opcion;
         do {
