@@ -19,9 +19,8 @@ public class MenUsuario {
         do {
             String x = JOptionPane.showInputDialog("=======MENU CONDUCTOR=========\n"
                     + "1. Rutas \n"
-                    + "2. Pagos \n"
-                    + "3. Modificar \n"
-                    + "4. Consultar \n"
+                    + "2. Modificar \n"
+                    + "3. Consultar \n"
                     + "0. SALIR "
             );
             opcion = x.charAt(0);
@@ -30,23 +29,20 @@ public class MenUsuario {
                     this.rutasC();
                     break;
                 case '2':
-                    JOptionPane.showMessageDialog(null,"WIP");
-                    break;
-                case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
                     try {
                         fac.modConductor(usuario.getCorreo(), pass, ID);
-                        JOptionPane.showMessageDialog(null,"Conductor Modificado Exitosamente y a tato le tiembla el cora");
+                        JOptionPane.showMessageDialog(null, "Conductor Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,e.getMessage());
+                        JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
-                case '4':
+                case '3':
                     try {
                         String resp = fac.consultarConductor(usuario.getCorreo(), ID);
                         JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Conductor.");
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,e.getMessage());
+                        JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
                 case '0':
@@ -76,15 +72,15 @@ public class MenUsuario {
                     this.rutasP();
                     break;
                 case '2':
-                    JOptionPane.showMessageDialog(null,"WIP");
+                    this.menuPago();
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
                     try {
                         fac.modPasajero(usuario.getCorreo(), pass, ID);
-                        JOptionPane.showMessageDialog(null,"Pasajero Modificado Exitosamente y a tato le tiembla el cora");
+                        JOptionPane.showMessageDialog(null, "Pasajero Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,e.getMessage());
+                        JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
                 case '4':
@@ -92,7 +88,7 @@ public class MenUsuario {
                         String resp = fac.consultarPasajero(usuario.getCorreo(), ID);
                         JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Pasajero.");
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,e.getMessage());
+                        JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
                 case '0':
@@ -119,18 +115,18 @@ public class MenUsuario {
             opcion = x.charAt(0);
             switch (opcion) {
                 case '1':
-                    JOptionPane.showMessageDialog(null,"WIP");
+                    JOptionPane.showMessageDialog(null, "WIP");
                     break;
                 case '2':
-                    JOptionPane.showMessageDialog(null,"WIP");
+                    JOptionPane.showMessageDialog(null, "WIP");
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
                     try {
                         fac.modAdministrador(usuario.getCorreo(), pass, ID);
-                        JOptionPane.showMessageDialog(null,"Administrador Modificado Exitosamente y a tato le tiembla el cora");
+                        JOptionPane.showMessageDialog(null, "Administrador Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,e.getMessage());
+                        JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
                 case '4':
@@ -138,7 +134,7 @@ public class MenUsuario {
                         String resp = fac.consultarAdministrador(usuario.getCorreo(), ID);
                         JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Administrador.");
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,e.getMessage());
+                        JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
                 case '0':
@@ -223,6 +219,88 @@ public class MenUsuario {
                     break;
                 case '2':
                     JOptionPane.showMessageDialog(null, fac.verViajePasajero(ID));
+                    break;
+            }
+        } while (opcion != '0');
+    }
+
+    private void menuPago() {
+        char opcion;
+        do {
+            String x = JOptionPane.showInputDialog("=======OPCIONES=========\n"
+                    + "1. Realizar Pago \n"
+                    + "2. Ver historial de pagos \n"
+                    + "0. SALIR "
+            );
+            opcion = x.charAt(0);
+            switch (opcion) {
+                case '1':
+                    this.rPago();
+                    break;
+                case '2':
+                    try{
+                    JOptionPane.showMessageDialog(null, fac.verPagos(ID));
+                    } catch (Exception e){
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
+                    break;
+                case '0':
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "ESE CASO NO EXISTE..!", "Error", 0);
+                    break;
+            }
+        } while (opcion != '0');
+    }
+    
+    private void rPago(){
+        String resp = "";
+        char opcion;
+        do {
+            String x = JOptionPane.showInputDialog("=======OPCIONES=========\n"
+                    + "1. Pagar via Baloto \n"
+                    + "2. Pagar en Efectivo \n"
+                    + "3. Pagar via Credito \n"
+                    + "0. Regresar "
+            );
+            opcion = x.charAt(0);
+            switch (opcion) {
+                case '1':
+                    int entrada2 = Integer.parseInt(JOptionPane.showInputDialog("1. Asignar valor a pagar \n 2. Regresar "));
+                    switch (entrada2) {
+                        case 1:
+                            String Valor = JOptionPane.showInputDialog("Ingrese valor a pagar: ");
+                            resp = fac.realizarPagos("Baloto", ID, Valor);
+                            JOptionPane.showMessageDialog(null, resp);
+                            break;
+                        case 2:
+                            break;
+                    }
+                    break;
+                case '2':
+                    entrada2 = Integer.parseInt(JOptionPane.showInputDialog("1. Asignar valor a pagar \n 2. Regresar "));
+                    switch (entrada2) {
+                        case 1:
+                            String Valor = JOptionPane.showInputDialog("Ingrese valor a pagar: ");
+                            resp = fac.realizarPagos("Efectivo", ID, Valor);
+                            JOptionPane.showMessageDialog(null, resp);
+                            break;
+                    }
+                    break;
+                case '3':
+                    entrada2 = Integer.parseInt(JOptionPane.showInputDialog("1. Asignar valor a pagar \n 2. Regresar "));
+                    switch (entrada2) {
+                        case 1:
+                            String Valor = JOptionPane.showInputDialog("Ingrese valor a pagar: ");
+                            resp = fac.realizarPagos("Credito", ID, Valor);
+                            JOptionPane.showMessageDialog(null, resp);
+                            break;
+                    }
+                    break;
+                case '0':
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "ESE CASO NO EXISTE..!", "Error", 0);
                     break;
             }
         } while (opcion != '0');

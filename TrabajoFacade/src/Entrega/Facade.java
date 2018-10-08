@@ -1,12 +1,15 @@
 package Entrega;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class Facade {
 
-    protected ArrayList<IUsuario> misUsuarios = new ArrayList<>();
+    protected ArrayList<IUsuario> misUsuarios = new ArrayList();
     protected ArrayList<Ruta> rutas = new ArrayList();
+    private ArrayList<component> pagos = new ArrayList();
     protected FactoryUsuarios usuarios = new FactoryUsuarios();
 
     public void agregarConductor(String correo, String password, String ID) throws Exception {
@@ -245,5 +248,58 @@ public class Facade {
             resp = "Usted no tiene ninguna reserva en el momento.";
         }
         return resp;
+    }
+
+    public String realizarPagos(String tipo, String id, String valor) {
+        Random ran = new Random();
+        Date date = new Date();
+        component com;
+        String resp = "";
+
+        if (tipo.equals("Baloto")) {
+            Pago pago = new Pago();
+            pago.asignarValores(valor + "," + (ran.nextInt(9000000) + 1000000) + "," + id);
+            com = new Baloto(pago);
+            com.asignarValores(date + "");
+            pagos.add(com);
+
+            resp = com.mostrarValores();
+        } else if (tipo.equals("Efectivo")) {
+            Pago pagoE = new Pago();
+            pagoE.asignarValores(valor + "," + (ran.nextInt(9000000) + 1000000) + "," + id);
+            com = new Efectivo(pagoE);
+            com.asignarValores(date + "");
+            pagos.add(com);
+
+            resp = com.mostrarValores();
+        } else if (tipo.equals("Credito")) {
+            Pago pagoC = new Pago();
+            pagoC.asignarValores(valor + "," + (ran.nextInt(9000000) + 1000000) + "," + id);
+            com = new Credito(pagoC);
+            com.asignarValores(date + "," + "Bancolombia");
+            pagos.add(com);
+
+            resp = com.mostrarValores();
+        }
+        return resp;
+    }
+
+    public String verPagos(String id) throws Exception {
+        String historial = "Historial de pagos: \n";
+        if (this.pagos.isEmpty()) {
+            throw new Exception("Todavia no hay pagos registrados.");
+        } else {
+            for (component pago : pagos) {
+                String user = "";
+                String[] info = pago.mostrarValores().split(",");
+                user = info[0];
+                info = user.split(":");
+                user = info[1].trim();
+                if (user.equalsIgnoreCase(id)) {
+                    historial = historial + pago.mostrarValores() + "\n";
+                }
+            }
+        }
+        return historial;
     }
 }
