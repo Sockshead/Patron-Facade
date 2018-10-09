@@ -1,7 +1,6 @@
 package Entrega;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class Ruta implements Composite {
 
