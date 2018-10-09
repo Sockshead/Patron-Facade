@@ -192,7 +192,6 @@
     </Class>
     <Class name="Facade" package="Entrega" visibility="public" xPosition="907.0" yPosition="1119.0">
       <Fields>
-        <Field name="misUsuarios" type="ArrayList&lt;IUsuario&gt;" visibility="protected"/>
         <Field name="rutas" type="ArrayList&lt;Ruta&gt;" visibility="protected"/>
         <Field name="pagos" type="ArrayList&lt;component&gt;" visibility="private"/>
         <Field name="usuarios" type="FactoryUsuarios" visibility="protected"/>
@@ -660,40 +659,39 @@
     </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="mediosPagopse" source="Entrega.MediosDePago" target="Entrega.component" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Pago" target="Entrega.component"/>
-    <IsRelation name="is" source="Entrega.Efectivo" target="Entrega.MediosDePago"/>
-    <HasRelation name="usuarios" source="Entrega.Facade" target="Entrega.FactoryUsuarios" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="Entrega.Pasajero" target="Entrega.Usuario"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Proxy" target="Entrega.IMenu"/>
-    <HasRelation name="usuarios" source="Entrega.Proxy" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Usuario&gt;"/>
-    <HasRelation name="adapterAdmin" source="Entrega.AdapterAdmin" target="Entrega.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Calle" target="Entrega.Composite"/>
-    <HasRelation name="user" source="Entrega.Proxy" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Entrega.MenUsuario" target="Entrega.Ruta" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Entrega.Proxy" target="Entrega.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.MediosDePago" target="Entrega.component"/>
-    <HasRelation name="menu" source="Entrega.Proxy" target="Entrega.MenUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="Entrega.Credito" target="Entrega.MediosDePago"/>
-    <HasRelation name="usuario" source="Entrega.MenUsuario" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="Entrega.Conductor" target="Entrega.Usuario"/>
-    <HasRelation name="pagos" source="Entrega.Facade" target="Entrega.component" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;component&gt;"/>
-    <IsRelation name="is" source="Entrega.Baloto" target="Entrega.MediosDePago"/>
-    <HasRelation name="misUsuarios" source="Entrega.Facade" target="Entrega.IUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;IUsuario&gt;"/>
-    <UseRelation source="Entrega.FactoryUsuarios" target="Entrega.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Ruta" target="Entrega.Composite"/>
-    <HasRelation name="miLista" source="Entrega.FactoryUsuarios" target="Entrega.IUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, IUsuario&gt;"/>
-    <UseRelation name="" source="Entrega.Proxy" target="Entrega.Proxy" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="instanciaUnica" source="Entrega.Proxy" target="Entrega.Proxy" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="componentes" source="Entrega.Ruta" target="Entrega.Composite" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Composite&gt;"/>
-    <HasRelation name="prox" source="Entrega.Facade" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="fac" source="Entrega.MenUsuario" target="Entrega.Facade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usuarios" source="Entrega.Proxy" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Usuario&gt;"/>
+    <UseRelation source="Entrega.FactoryUsuarios" target="Entrega.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entrega.Baloto" target="Entrega.MediosDePago"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Calle" target="Entrega.Composite"/>
     <UseRelation source="Entrega.Facade" target="Entrega.Ruta" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Usuario" target="Entrega.IUsuario"/>
-    <HasRelation name="rutas" source="Entrega.Facade" target="Entrega.Ruta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ruta&gt;"/>
-    <HasRelation name="fac" source="Entrega.Proxy" target="Entrega.Facade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Entrega.Ruta" target="Entrega.Composite" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="prox" source="Entrega.MenuPpal" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="Entrega.AdapterAdmin" target="Entrega.Usuario"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Usuario" target="Entrega.IUsuario"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.MediosDePago" target="Entrega.component"/>
+    <UseRelation source="Entrega.MenUsuario" target="Entrega.Ruta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="rutas" source="Entrega.Facade" target="Entrega.Ruta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ruta&gt;"/>
+    <IsRelation name="is" source="Entrega.Credito" target="Entrega.MediosDePago"/>
+    <HasRelation name="fac" source="Entrega.Proxy" target="Entrega.Facade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="Entrega.Proxy" target="Entrega.Proxy" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entrega.Ruta" target="Entrega.Composite" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instanciaUnica" source="Entrega.Proxy" target="Entrega.Proxy" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="usuarios" source="Entrega.Facade" target="Entrega.FactoryUsuarios" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="menu" source="Entrega.Proxy" target="Entrega.MenUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mediosPagopse" source="Entrega.MediosDePago" target="Entrega.component" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pagos" source="Entrega.Facade" target="Entrega.component" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;component&gt;"/>
+    <IsRelation name="is" source="Entrega.Pasajero" target="Entrega.Usuario"/>
+    <HasRelation name="adapterAdmin" source="Entrega.AdapterAdmin" target="Entrega.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entrega.Conductor" target="Entrega.Usuario"/>
+    <HasRelation name="miLista" source="Entrega.FactoryUsuarios" target="Entrega.IUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, IUsuario&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Ruta" target="Entrega.Composite"/>
+    <HasRelation name="prox" source="Entrega.Facade" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Pago" target="Entrega.component"/>
+    <UseRelation source="Entrega.Proxy" target="Entrega.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Proxy" target="Entrega.IMenu"/>
+    <HasRelation name="prox" source="Entrega.MenuPpal" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usuario" source="Entrega.MenUsuario" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entrega.Efectivo" target="Entrega.MediosDePago"/>
+    <HasRelation name="user" source="Entrega.Proxy" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

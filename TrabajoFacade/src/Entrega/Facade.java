@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class Facade {
 
-    protected ArrayList<IUsuario> misUsuarios = new ArrayList();
     protected ArrayList<Ruta> rutas = new ArrayList();
     private ArrayList<component> pagos = new ArrayList();
     protected FactoryUsuarios usuarios = new FactoryUsuarios();
