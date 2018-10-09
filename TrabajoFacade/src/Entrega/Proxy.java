@@ -45,7 +45,7 @@ class Proxy implements IMenu {
 
         for (int i = 0; i < usuarios.size(); i++) {
             us = usuarios.get(i);
-            if (us.getCorreo().equalsIgnoreCase(usuario) && us.consultar(usuario).equalsIgnoreCase(password)) {
+            if (us.getCorreo().equalsIgnoreCase(usuario) && us.getPass().equalsIgnoreCase(password)) {
                 encontrado = true;
                 user = us;
                 this.ID = ID;
@@ -57,14 +57,14 @@ class Proxy implements IMenu {
         }
     }
 
-    public void addUs(String correo, String password, String ID, String tipo) throws Exception {
+    public void addUs(String correo, String password, String nombre, String apellido, int edad, String ID, String tipo) throws Exception {
         boolean agregado = false;
         Usuario user;
         if (tipo.equalsIgnoreCase("conductor")) {
             try {
-                fac.agregarConductor(correo, password, ID);
+                fac.agregarConductor(correo, password, nombre, apellido, edad, ID);
                 user = new Conductor();
-                user.adicionar(correo, password);
+                user.adicionar(correo, password, nombre, apellido, edad);
                 usuarios.add(user);
             } catch (Exception e) {
                 throw e;
@@ -72,9 +72,9 @@ class Proxy implements IMenu {
             agregado = true;
         } else if (tipo.equalsIgnoreCase("pasajero")) {
             try {
-                fac.agregarPasajero(correo, password, ID);
+                fac.agregarPasajero(correo, password, nombre, apellido, edad, ID);
                 user = new Pasajero();
-                user.adicionar(correo, password);
+                user.adicionar(correo, password, nombre, apellido, edad);
                 usuarios.add(user);
             } catch (Exception e) {
                 throw e;
@@ -82,9 +82,9 @@ class Proxy implements IMenu {
             agregado = true;
         } else if (tipo.equalsIgnoreCase("admin")) {
             try {
-                fac.agregarAdministador(correo, password, ID);
+                fac.agregarAdministador(correo, password, nombre, apellido, edad, ID);
                 user = new AdapterAdmin();
-                user.adicionar(correo, password);
+                user.adicionar(correo, password, nombre, apellido, edad);
                 usuarios.add(user);
             } catch (Exception e) {
                 throw e;
@@ -96,10 +96,10 @@ class Proxy implements IMenu {
         }
     }
 
-    public void modUs(String correo, String password) {
+    public void modUs(String correo, String password, String nombre, String apellido, int edad) {
         for (Usuario us : usuarios) {
             if (us.getCorreo().equalsIgnoreCase(correo)) {
-                us.modificar(password);
+                us.modificar(password, nombre, apellido, edad);
             }
         }
     }

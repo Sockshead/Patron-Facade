@@ -3,7 +3,6 @@ package Entrega;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
-import javax.swing.JOptionPane;
 
 public class Facade {
 
@@ -13,7 +12,7 @@ public class Facade {
     protected FactoryUsuarios usuarios = new FactoryUsuarios();
     private Proxy prox;
 
-    public void agregarConductor(String correo, String password, String ID) throws Exception {
+    public void agregarConductor(String correo, String password, String nombre, String apellido, int edad, String ID) throws Exception {
         boolean existe = false;
         boolean agregado = false;
 
@@ -23,7 +22,7 @@ public class Facade {
 
         if (!existe) {
             IUsuario usuario = new Conductor();
-            usuario.adicionar(correo, password);
+            usuario.adicionar(correo, password, nombre, apellido, edad);
             usuarios.agregarUsuario(ID, usuario);
             agregado = true;
         } else {
@@ -35,7 +34,7 @@ public class Facade {
         }
     }
 
-    public void agregarPasajero(String correo, String password, String ID) throws Exception {
+    public void agregarPasajero(String correo, String password, String nombre, String apellido, int edad, String ID) throws Exception {
         boolean existe = false;
         boolean agregado = false;
 
@@ -45,7 +44,7 @@ public class Facade {
 
         if (!existe) {
             IUsuario usuario = new Pasajero();
-            usuario.adicionar(correo, password);
+            usuario.adicionar(correo, password, nombre, apellido, edad);
             usuarios.agregarUsuario(ID, usuario);
             agregado = true;
         } else {
@@ -57,7 +56,7 @@ public class Facade {
         }
     }
 
-    public void agregarAdministador(String correo, String password, String ID) throws Exception {
+    public void agregarAdministador(String correo, String password, String nombre, String apellido, int edad, String ID) throws Exception {
         boolean existe = false;
         boolean agregado = false;
 
@@ -67,7 +66,7 @@ public class Facade {
 
         if (!existe) {
             IUsuario usuario = new AdapterAdmin();
-            usuario.adicionar(correo, password);
+            usuario.adicionar(correo, password, nombre, apellido, edad);
             usuarios.agregarUsuario(ID, usuario);
             agregado = true;
         } else {
@@ -79,7 +78,7 @@ public class Facade {
         }
     }
 
-    public void modConductor(String correo, String password, String ID) throws Exception {
+    public void modConductor(String correo, String password, String nombre, String apellido, int edad, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
         prox = Proxy.rConstructora();
@@ -88,16 +87,16 @@ public class Facade {
 
         if (usuario != null) {
             existe = true;
-            usuario.modificar(password);
+            usuario.modificar(password, nombre, apellido, edad);
             usuarios.actualizarUsuario(ID, usuario);
-            prox.modUs(correo, password);
+            prox.modUs(correo, password, nombre, apellido, edad);
         }
         if (!existe) {
             throw new Exception("Conductor con la cedula " + ID + " no existe.");
         }
     }
 
-    public void modPasajero(String correo, String password, String ID) throws Exception {
+    public void modPasajero(String correo, String password, String nombre, String apellido, int edad, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
         prox = Proxy.rConstructora();
@@ -106,16 +105,16 @@ public class Facade {
 
         if (usuario != null) {
             existe = true;
-            usuario.modificar(password);
+            usuario.modificar(password, nombre, apellido, edad);
             usuarios.actualizarUsuario(ID, usuario);
-            prox.modUs(correo, password);
+            prox.modUs(correo, password, nombre, apellido, edad);
         }
         if (!existe) {
             throw new Exception("Pasajero con la cedula " + ID + " no existe.");
         }
     }
 
-    public void modAdministrador(String correo, String password, String ID) throws Exception {
+    public void modAdministrador(String correo, String password, String nombre, String apellido, int edad, String ID) throws Exception {
         boolean existe = false;
         IUsuario usuario = null;
         prox = Proxy.rConstructora();
@@ -124,9 +123,9 @@ public class Facade {
 
         if (usuario != null) {
             existe = true;
-            usuario.modificar(password);
+            usuario.modificar(password, nombre, apellido, edad);
             usuarios.actualizarUsuario(ID, usuario);
-            prox.modUs(correo, password);
+            prox.modUs(correo, password, nombre, apellido, edad);
         }
         if (!existe) {
             throw new Exception("Administrador con la cedula " + ID + " no existe.");
@@ -232,7 +231,7 @@ public class Facade {
                     ruta.reservaCupo(id);
                     resv = "Reserva realizada en la ruta " + nombre + " con exito.";
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    resv = e.getMessage();
                 }
             }
         }
@@ -326,6 +325,46 @@ public class Facade {
         if (!eliminado) {
             throw new Exception("Usuario con la cedula " + id + " no existe.");
         }
+    }
 
+    public String consultarUs(String id) throws Exception {
+        boolean encontrado = false;
+        IUsuario usuario = null;
+        String found = "";
+        usuario = usuarios.buscar(id);
+
+        if (usuario != null) {
+            found = usuario.getCorreo() + ", " + usuario.consultar(usuario.getCorreo());
+            if (usuario instanceof Conductor) {
+                found = found + " y es un Conductor.";
+            } else if (usuario instanceof Pasajero) {
+                found = found + " y es un Pasajero.";
+            } else if (usuario instanceof AdapterAdmin) {
+                found = found + " y es un Administrador.";
+            }
+            encontrado = true;
+        }
+        if (!encontrado) {
+            throw new Exception("Usuario con cedula " + id + " no existe.");
+        }
+        return found;
+    }
+    
+    public void modUs(String password, String nombre, String apellido, int edad, String id) throws Exception{
+        boolean existe = false;
+        IUsuario usuario = null;
+        prox = Proxy.rConstructora();
+        usuario = usuarios.buscar(id);
+
+        if (usuario != null) {
+            String correo = usuario.getCorreo();
+            existe = true;
+            usuario.modificar(password, nombre, apellido, edad);
+            usuarios.actualizarUsuario(id, usuario);
+            prox.modUs(correo, password, nombre, apellido, edad);
+        }
+        if (!existe) {
+            throw new Exception("El usuario con la cedula " + id + " no existe.");
+        }
     }
 }

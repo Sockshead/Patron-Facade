@@ -30,8 +30,11 @@ public class MenUsuario {
                     break;
                 case '2':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
+                    String nombre = JOptionPane.showInputDialog("Ingrese su nuevo nombre");
+                    String apellido = JOptionPane.showInputDialog("Ingrese su nuevo apellido");
                     try {
-                        fac.modConductor(usuario.getCorreo(), pass, ID);
+                        int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su nueva edad"));
+                        fac.modConductor(usuario.getCorreo(), pass, nombre, apellido, edad, ID);
                         JOptionPane.showMessageDialog(null, "Conductor Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
@@ -40,7 +43,7 @@ public class MenUsuario {
                 case '3':
                     try {
                         String resp = fac.consultarConductor(usuario.getCorreo(), ID);
-                        JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Conductor.");
+                        JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", " + resp + " y es un Conductor.");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
                     }
@@ -76,8 +79,11 @@ public class MenUsuario {
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
+                    String nombre = JOptionPane.showInputDialog("Ingrese su nuevo nombre");
+                    String apellido = JOptionPane.showInputDialog("Ingrese su nuevo apellido");
                     try {
-                        fac.modPasajero(usuario.getCorreo(), pass, ID);
+                        int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su nueva edad"));
+                        fac.modPasajero(usuario.getCorreo(), pass, nombre, apellido, edad, ID);
                         JOptionPane.showMessageDialog(null, "Pasajero Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
@@ -86,7 +92,7 @@ public class MenUsuario {
                 case '4':
                     try {
                         String resp = fac.consultarPasajero(usuario.getCorreo(), ID);
-                        JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Pasajero.");
+                        JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", " + resp + " y es un Pasajero.");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
                     }
@@ -110,6 +116,8 @@ public class MenUsuario {
                     + "2. Cancelar cuenta \n"
                     + "3. Modificar \n"
                     + "4. Consultar \n"
+                    + "5. Buscar Usuario \n"
+                    + "6. Modificar Usuario \n"
                     + "0. SALIR "
             );
             opcion = x.charAt(0);
@@ -125,16 +133,19 @@ public class MenUsuario {
                 case '2':
                     String id = JOptionPane.showInputDialog("Ingrese la cedula del usuario a eliminar:");
                     try {
-                        fac.eliminarUsuario(id,ID);
-                        JOptionPane.showMessageDialog(null, "Se elimino el usuario con cedula: "+id+" correctamente");
+                        fac.eliminarUsuario(id, ID);
+                        JOptionPane.showMessageDialog(null, "Se elimino el usuario con cedula: " + id + " correctamente");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
                     }
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
+                    String nombre = JOptionPane.showInputDialog("Ingrese su nuevo nombre");
+                    String apellido = JOptionPane.showInputDialog("Ingrese su nuevo apellido");
                     try {
-                        fac.modAdministrador(usuario.getCorreo(), pass, ID);
+                        int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su nueva edad"));
+                        fac.modAdministrador(usuario.getCorreo(), pass, nombre, apellido, edad, ID);
                         JOptionPane.showMessageDialog(null, "Administrador Modificado Exitosamente y a tato le tiembla el cora");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
@@ -143,9 +154,33 @@ public class MenUsuario {
                 case '4':
                     try {
                         String resp = fac.consultarAdministrador(usuario.getCorreo(), ID);
-                        JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", su contraseña es: " + resp + " y es un Administrador.");
+                        JOptionPane.showMessageDialog(null, "El usuario es: " + usuario.getCorreo() + ", " + resp + " y es un Administrador.");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
+                    break;
+                case '5':
+                    try {
+                        String idb = JOptionPane.showInputDialog("Ingrese la cedula del usuario a buscar:");
+                        String resp = fac.consultarUs(idb);
+                        JOptionPane.showMessageDialog(null, "El usuario es: " + resp);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
+                    break;
+                case '6':
+                    String idm = JOptionPane.showInputDialog("Ingrese la cedula del usuario a modificar:");
+                    if (fac.usuarios.buscar(idm) != null) {
+                        String pass2 = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
+                        String nombre2 = JOptionPane.showInputDialog("Ingrese su nuevo nombre");
+                        String apellido2 = JOptionPane.showInputDialog("Ingrese su nuevo apellido");
+                        try {
+                            int edad2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su nueva edad"));
+                            fac.modUs(pass2, nombre2, apellido2, edad2, idm);
+                            JOptionPane.showMessageDialog(null, "Usuario modificado exitosamente");
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, e.getMessage());
+                        }
                     }
                     break;
                 case '0':

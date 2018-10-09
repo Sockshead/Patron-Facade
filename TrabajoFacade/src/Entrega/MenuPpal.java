@@ -6,6 +6,9 @@ public class MenuPpal {
 
     private String correo;
     private String password;
+    private String nombre;
+    private String apellido;
+    private int edad;
     private String ID;
     private Proxy prox;
 
@@ -50,7 +53,7 @@ public class MenuPpal {
         try {
             prox.validarUs(correo, password, ID);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
@@ -86,11 +89,14 @@ public class MenuPpal {
         ID = JOptionPane.showInputDialog("Ingrese su cedula:");
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
+        nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
+        apellido = JOptionPane.showInputDialog("Ingrese su apellido:");
         try {
-            prox.addUs(correo, password, ID, "conductor");
-            JOptionPane.showMessageDialog(null,"Conductor Agregado Exitosamente y a tato le tiembla el cora");
+            edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad:"));
+            prox.addUs(correo, password, nombre, apellido, edad, ID, "conductor");
+            JOptionPane.showMessageDialog(null, "Conductor Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
@@ -98,11 +104,14 @@ public class MenuPpal {
         ID = JOptionPane.showInputDialog("Ingrese su cedula:");
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
+        nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
+        apellido = JOptionPane.showInputDialog("Ingrese su apellido:");
         try {
-            prox.addUs(correo, password, ID, "pasajero");
-            JOptionPane.showMessageDialog(null,"Pasajero Agregado Exitosamente y a tato le tiembla el cora");
+            edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad:"));
+            prox.addUs(correo, password, nombre, apellido, edad, ID, "pasajero");
+            JOptionPane.showMessageDialog(null, "Pasajero Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
@@ -110,11 +119,14 @@ public class MenuPpal {
         ID = JOptionPane.showInputDialog("Ingrese su cedula:");
         correo = JOptionPane.showInputDialog("Ingrese el correo:");
         password = JOptionPane.showInputDialog("Ingrese la contraseña:");
+        nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
+        apellido = JOptionPane.showInputDialog("Ingrese su apellido:");
         try {
-            prox.addUs(correo, password, ID, "admin");
-            JOptionPane.showMessageDialog(null,"Administrador Agregado Exitosamente y a tato le tiembla el cora");
+            edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad:"));
+            prox.addUs(correo, password, nombre, apellido, edad, ID, "admin");
+            JOptionPane.showMessageDialog(null, "Administrador Agregado Exitosamente y a tato le tiembla el cora");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 }
