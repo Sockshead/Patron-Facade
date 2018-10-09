@@ -2,7 +2,7 @@
 
 <ClassDiagram name="TrabajoFacade">
   <ClassDiagramComponents>
-    <Class name="AdapterAdmin" package="Entrega" visibility="public" xPosition="3404.0" yPosition="3358.0">
+    <Class name="AdapterAdmin" package="Entrega" visibility="public" xPosition="3727.0" yPosition="663.0">
       <Fields>
         <Field name="adapterAdmin" type="Admin" visibility="private"/>
       </Fields>
@@ -28,7 +28,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Admin" package="Entrega" visibility="public" xPosition="3415.0" yPosition="3709.0">
+    <Class name="Admin" package="Entrega" visibility="public" xPosition="3738.0" yPosition="953.0">
       <Fields>
         <Field name="corr" type="String" visibility="private" isStatic="true"/>
         <Field name="pass" type="String" visibility="private" isStatic="true"/>
@@ -63,7 +63,7 @@
         <Method name="getAge" returnType="int" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Baloto" package="Entrega" visibility="public" xPosition="1106.0" yPosition="1825.0">
+    <Class name="Baloto" package="Entrega" visibility="public" xPosition="1106.0" yPosition="16.0">
       <Fields>
         <Field name="fecha" type="String" visibility="package"/>
       </Fields>
@@ -80,7 +80,7 @@
         <Method name="untitledMethod" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Calle" package="Entrega" visibility="public" xPosition="280.0" yPosition="4421.0">
+    <Class name="Calle" package="Entrega" visibility="public" xPosition="217.0" yPosition="2215.0">
       <Fields>
         <Field name="oX" type="float" visibility="private"/>
         <Field name="nombre" type="String" visibility="private"/>
@@ -133,7 +133,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Conductor" package="Entrega" visibility="public" xPosition="3360.0" yPosition="2457.0">
+    <Class name="Conductor" package="Entrega" visibility="public" xPosition="3381.0" yPosition="61.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public"/>
@@ -157,7 +157,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Credito" package="Entrega" visibility="public" xPosition="1601.0" yPosition="2132.0">
+    <Class name="Credito" package="Entrega" visibility="public" xPosition="1463.0" yPosition="320.0">
       <Fields>
         <Field name="fecha" type="String" visibility="package"/>
         <Field name="banco" type="String" visibility="package"/>
@@ -174,7 +174,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Efectivo" package="Entrega" visibility="public" xPosition="605.0" yPosition="2142.0">
+    <Class name="Efectivo" package="Entrega" visibility="public" xPosition="768.0" yPosition="330.0">
       <Fields>
         <Field name="fecha" type="String" visibility="package"/>
       </Fields>
@@ -190,7 +190,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Facade" package="Entrega" visibility="public" xPosition="1034.0" yPosition="3241.0">
+    <Class name="Facade" package="Entrega" visibility="public" xPosition="907.0" yPosition="1119.0">
       <Fields>
         <Field name="misUsuarios" type="ArrayList&lt;IUsuario&gt;" visibility="protected"/>
         <Field name="rutas" type="ArrayList&lt;Ruta&gt;" visibility="protected"/>
@@ -317,7 +317,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="FactoryUsuarios" package="Entrega" visibility="public" xPosition="2171.0" yPosition="2123.0">
+    <Class name="FactoryUsuarios" package="Entrega" visibility="public" xPosition="2153.0" yPosition="51.0">
       <Fields>
         <Field name="miLista" type="HashMap&lt;String, IUsuario&gt;" visibility="private"/>
       </Fields>
@@ -339,7 +339,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="MediosDePago" package="Entrega" visibility="public" isAbstract="true" xPosition="1083.0" yPosition="2124.0">
+    <Class name="MediosDePago" package="Entrega" visibility="public" isAbstract="true" xPosition="1083.0" yPosition="312.0">
       <Fields>
         <Field name="mediosPagopse" type="component" visibility="protected"/>
         <Field name="mediopag" type="String" visibility="protected"/>
@@ -356,7 +356,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="MenuPpal" package="Entrega" visibility="public" xPosition="2257.0" yPosition="3967.0">
+    <Class name="MenuPpal" package="Entrega" visibility="public" xPosition="2883.0" yPosition="1348.0">
       <Fields>
         <Field name="correo" type="String" visibility="private"/>
         <Field name="password" type="String" visibility="private"/>
@@ -381,7 +381,7 @@
         <Method name="casoNuevoAdmin" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="MenUsuario" package="Entrega" visibility="public" xPosition="2089.0" yPosition="4592.0">
+    <Class name="MenUsuario" package="Entrega" visibility="public" xPosition="3169.0" yPosition="2386.0">
       <Fields>
         <Field name="fac" type="Facade" visibility="private"/>
         <Field name="usuario" type="Usuario" visibility="private"/>
@@ -412,7 +412,7 @@
         <Method name="rPago" returnType="void" visibility="private"/>
       </Methods>
     </Class>
-    <Class name="Pago" package="Entrega" visibility="public" xPosition="673.0" yPosition="2452.0">
+    <Class name="Pago" package="Entrega" visibility="public" xPosition="725.0" yPosition="757.0">
       <Fields>
         <Field name="valorPago" type="String" visibility="private"/>
         <Field name="referencia" type="String" visibility="private"/>
@@ -428,7 +428,7 @@
         <Method name="darUsuario" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Pasajero" package="Entrega" visibility="public" xPosition="2791.0" yPosition="2457.0">
+    <Class name="Pasajero" package="Entrega" visibility="public" xPosition="2728.0" yPosition="61.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public"/>
@@ -452,7 +452,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Proxy" package="Entrega" visibility="public" xPosition="1951.0" yPosition="3358.0">
+    <Class name="Proxy" package="Entrega" visibility="public" xPosition="2000.0" yPosition="1348.0">
       <Fields>
         <Field name="instanciaUnica" type="Proxy" visibility="private" isStatic="true"/>
         <Field name="usuarios" type="ArrayList&lt;Usuario&gt;" visibility="private"/>
@@ -501,7 +501,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Ruta" package="Entrega" visibility="public" xPosition="217.0" yPosition="3241.0">
+    <Class name="Ruta" package="Entrega" visibility="public" xPosition="154.0" yPosition="1140.0">
       <Fields>
         <Field name="idConductor" type="String" visibility="private"/>
         <Field name="nombre" type="String" visibility="private"/>
@@ -571,7 +571,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Usuario" package="Entrega" visibility="public" isAbstract="true" xPosition="2791.0" yPosition="3226.0">
+    <Class name="Usuario" package="Entrega" visibility="public" isAbstract="true" xPosition="3050.0" yPosition="531.0">
       <Fields>
         <Field name="Correo" type="String" visibility="private"/>
         <Field name="Pass" type="String" visibility="private"/>
@@ -619,7 +619,7 @@
         </Method>
       </Methods>
     </Class>
-    <Interface name="component" package="Entrega" visibility="public" xPosition="1106.0" yPosition="2506.0">
+    <Interface name="component" package="Entrega" visibility="public" xPosition="1106.0" yPosition="810.0">
       <Methods>
         <Method name="asignarValores" returnType="void" visibility="public">
           <Argument type="String" name="pPago"/>
@@ -627,17 +627,17 @@
         <Method name="mostrarValores" returnType="String" visibility="public"/>
       </Methods>
     </Interface>
-    <Interface name="Composite" package="Entrega" visibility="public" xPosition="431.0" yPosition="4186.0">
+    <Interface name="Composite" package="Entrega" visibility="public" xPosition="368.0" yPosition="2002.0">
       <Methods>
         <Method name="mostrar" returnType="String" visibility="public"/>
       </Methods>
     </Interface>
-    <Interface name="IMenu" package="Entrega" visibility="public" xPosition="2075.0" yPosition="3172.0">
+    <Interface name="IMenu" package="Entrega" visibility="public" xPosition="2038.0" yPosition="1082.0">
       <Methods>
         <Method name="performOperations" returnType="void" visibility="public"/>
       </Methods>
     </Interface>
-    <Interface name="IUsuario" package="Entrega" visibility="public" xPosition="2068.0" yPosition="2805.0">
+    <Interface name="IUsuario" package="Entrega" visibility="public" xPosition="2000.0" yPosition="629.0">
       <Methods>
         <Method name="adicionar" returnType="void" visibility="public">
           <Argument type="String" name="correo"/>
@@ -683,8 +683,8 @@
     <UseRelation source="Entrega.FactoryUsuarios" target="Entrega.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Ruta" target="Entrega.Composite"/>
     <HasRelation name="miLista" source="Entrega.FactoryUsuarios" target="Entrega.IUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, IUsuario&gt;"/>
-    <UseRelation source="Entrega.Proxy" target="Entrega.Proxy" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="instanciaUnica" source="Entrega.Proxy" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="Entrega.Proxy" target="Entrega.Proxy" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instanciaUnica" source="Entrega.Proxy" target="Entrega.Proxy" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="componentes" source="Entrega.Ruta" target="Entrega.Composite" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Composite&gt;"/>
     <HasRelation name="prox" source="Entrega.Facade" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="fac" source="Entrega.MenUsuario" target="Entrega.Facade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
