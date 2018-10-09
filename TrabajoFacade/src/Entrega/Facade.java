@@ -310,11 +310,11 @@ public class Facade {
         return historial;
     }
 
-    public String elimUs(String id, String idAdmin) {
+    public String elimUsa(String id, String idAdmin) {
         boolean existe = false;
         prox = Proxy.rConstructora();
         IUsuario usuario = usuarios.buscar(id);
-        String respuesta = "";
+        String respuesta = "A";
 
         if (usuario != null) {
             existe = true;
@@ -331,5 +331,24 @@ public class Facade {
             respuesta = "Usuario con la cedula " + id + " no existe.";
         }
         return respuesta;
+    }
+    public void eliminarUsuario(String id, String idAdmin) throws Exception {
+        boolean eliminado=false;
+        prox = Proxy.rConstructora();
+        IUsuario usuario = usuarios.buscar(id);
+        
+        if(usuario!=null){
+            if (id.equalsIgnoreCase(idAdmin)) {
+                throw new Exception("No se puede eliminar a usted mismo.");
+            } 
+            String correo = usuario.getCorreo();
+            usuarios.eliminarUsuario(id);
+            eliminado=prox.elimUs(correo);
+        }
+        if(!eliminado){
+            throw new Exception("Usuario con la cedula " + id + " no existe.");
+        }
+
+        
     }
 }

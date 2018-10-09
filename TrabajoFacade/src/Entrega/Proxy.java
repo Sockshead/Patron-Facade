@@ -103,13 +103,16 @@ class Proxy implements IMenu {
             }
         }
     }
-    
-    public void elimUs(String correo) {
-        for (Usuario us : usuarios) {
-            if (us.getCorreo().equalsIgnoreCase(correo)) {
-                usuarios.remove(us);
+
+    public boolean elimUs(String correo) {
+        boolean elim = false;
+        for (int a=0;a<usuarios.size();a++) {
+            if (usuarios.get(a).getCorreo().equals(correo)) {
+                usuarios.remove(a);
+                elim=true;
             }
         }
+        return elim;
     }
 
     public MenUsuario getMenu() {

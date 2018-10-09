@@ -124,7 +124,12 @@ public class MenUsuario {
                     break;
                 case '2':
                     String id = JOptionPane.showInputDialog("Ingrese la cedula del usuario a eliminar:");
-                    JOptionPane.showMessageDialog(null, fac.elimUs(id, this.ID));
+                    try {
+                        fac.eliminarUsuario(id,ID);
+                        JOptionPane.showMessageDialog(null, "Se elimino el usuario con cedula: "+id+" correctamente");
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
                     break;
                 case '3':
                     String pass = JOptionPane.showInputDialog("Ingrese su nueva contraseña");
