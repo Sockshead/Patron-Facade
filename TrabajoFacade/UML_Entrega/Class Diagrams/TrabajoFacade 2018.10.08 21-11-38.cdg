@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TrabajoFacade">
+  <ClassDiagramComponents>
+    <Class name="AdapterAdmin" package="Entrega" visibility="public" xPosition="3404.0" yPosition="3358.0">
+      <Fields>
+        <Field name="adapterAdmin" type="Admin" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="adicionar" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="modificar" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="consultar" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Admin" package="Entrega" visibility="public" xPosition="3415.0" yPosition="3709.0">
+      <Fields>
+        <Field name="corr" type="String" visibility="private" isStatic="true"/>
+        <Field name="pass" type="String" visibility="private" isStatic="true"/>
+        <Field name="nomb" type="String" visibility="private"/>
+        <Field name="ape" type="String" visibility="private"/>
+        <Field name="age" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crear" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="leer" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="actualizar" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="getCorr" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="getPass" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="getNomb" returnType="String" visibility="public"/>
+        <Method name="getApe" returnType="String" visibility="public"/>
+        <Method name="getAge" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Baloto" package="Entrega" visibility="public" xPosition="1106.0" yPosition="1825.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="component" name="pMediosPago"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarValores" returnType="String" visibility="public"/>
+        <Method name="asignarValores" returnType="void" visibility="public">
+          <Argument type="String" name="pPago"/>
+        </Method>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Calle" package="Entrega" visibility="public" xPosition="280.0" yPosition="4421.0">
+      <Fields>
+        <Field name="oX" type="float" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="float" name="oX"/>
+          <Argument type="float" name="oY"/>
+          <Argument type="float" name="dX"/>
+          <Argument type="float" name="dY"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="float" name="disM"/>
+          <Argument type="float" name="tiempo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrar" returnType="String" visibility="public"/>
+        <Method name="getVelocidad" returnType="float" visibility="public"/>
+        <Method name="setVelocidad" returnType="void" visibility="private">
+          <Argument type="float" name="velocidad"/>
+        </Method>
+        <Method name="getTiempo" returnType="float" visibility="public"/>
+        <Method name="setTiempo" returnType="void" visibility="private">
+          <Argument type="float" name="tiempo"/>
+        </Method>
+        <Method name="getoX" returnType="float" visibility="public"/>
+        <Method name="setoX" returnType="void" visibility="private">
+          <Argument type="float" name="oX"/>
+        </Method>
+        <Method name="getoY" returnType="float" visibility="public"/>
+        <Method name="setoY" returnType="void" visibility="private">
+          <Argument type="float" name="oY"/>
+        </Method>
+        <Method name="getdX" returnType="float" visibility="public"/>
+        <Method name="setdX" returnType="void" visibility="private">
+          <Argument type="float" name="dX"/>
+        </Method>
+        <Method name="getdY" returnType="float" visibility="public"/>
+        <Method name="setdY" returnType="void" visibility="private">
+          <Argument type="float" name="dY"/>
+        </Method>
+        <Method name="getDisM" returnType="float" visibility="public"/>
+        <Method name="setDisM" returnType="void" visibility="private">
+          <Argument type="float" name="disM"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="private">
+          <Argument type="String" name="nombre"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Conductor" package="Entrega" visibility="public" xPosition="3360.0" yPosition="2457.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="adicionar" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="modificar" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="consultar" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Credito" package="Entrega" visibility="public" xPosition="1601.0" yPosition="2132.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="package"/>
+        <Field name="banco" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="component" name="pMediosPago"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarValores" returnType="String" visibility="public"/>
+        <Method name="asignarValores" returnType="void" visibility="public">
+          <Argument type="String" name="pPago"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Efectivo" package="Entrega" visibility="public" xPosition="605.0" yPosition="2142.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="component" name="pMediosPago"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarValores" returnType="String" visibility="public"/>
+        <Method name="asignarValores" returnType="void" visibility="public">
+          <Argument type="String" name="pPago"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Facade" package="Entrega" visibility="public" xPosition="1034.0" yPosition="3241.0">
+      <Fields>
+        <Field name="misUsuarios" type="ArrayList&lt;IUsuario&gt;" visibility="protected"/>
+        <Field name="rutas" type="ArrayList&lt;Ruta&gt;" visibility="protected"/>
+        <Field name="pagos" type="ArrayList&lt;component&gt;" visibility="private"/>
+        <Field name="usuarios" type="FactoryUsuarios" visibility="protected"/>
+        <Field name="prox" type="Proxy" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarConductor" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="agregarPasajero" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="agregarAdministador" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="modConductor" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="modPasajero" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="modAdministrador" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="consultarConductor" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="consultarPasajero" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="consultarAdministrador" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="newRuta" returnType="Ruta" visibility="public">
+          <Argument type="String" name="ID"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="float" name="valor"/>
+          <Argument type="int" name="cupos"/>
+          <Argument type="String" name="fecha"/>
+          <Argument type="String" name="hora"/>
+          <Argument type="String" name="destino"/>
+        </Method>
+        <Method name="newCalle" returnType="void" visibility="public">
+          <Argument type="Ruta" name="ruta"/>
+          <Argument type="float" name="oX"/>
+          <Argument type="float" name="oY"/>
+          <Argument type="float" name="dX"/>
+          <Argument type="float" name="dY"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="float" name="disM"/>
+          <Argument type="float" name="tiempo"/>
+        </Method>
+        <Method name="mostrarRuta" returnType="String" visibility="public">
+          <Argument type="Ruta" name="ruta"/>
+        </Method>
+        <Method name="verRutas" returnType="String" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="cargarRutas" returnType="String" visibility="public"/>
+        <Method name="resvCupo" returnType="String" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="verViajePasajero" returnType="String" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="realizarPagos" returnType="String" visibility="public">
+          <Argument type="String" name="tipo"/>
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="valor"/>
+        </Method>
+        <Method name="verPagos" returnType="String" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="eliminarUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="idAdmin"/>
+        </Method>
+        <Method name="consultarUs" returnType="String" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="modUs" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FactoryUsuarios" package="Entrega" visibility="public" xPosition="2171.0" yPosition="2123.0">
+      <Fields>
+        <Field name="miLista" type="HashMap&lt;String, IUsuario&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="key"/>
+          <Argument type="IUsuario" name="user"/>
+        </Method>
+        <Method name="eliminarUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="key"/>
+        </Method>
+        <Method name="actualizarUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="key"/>
+          <Argument type="IUsuario" name="user"/>
+        </Method>
+        <Method name="buscar" returnType="IUsuario" visibility="public">
+          <Argument type="String" name="key"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MediosDePago" package="Entrega" visibility="public" isAbstract="true" xPosition="1083.0" yPosition="2124.0">
+      <Fields>
+        <Field name="mediosPagopse" type="component" visibility="protected"/>
+        <Field name="mediopag" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="component" name="pMediosPago"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarValores" returnType="String" visibility="public"/>
+        <Method name="asignarValores" returnType="void" visibility="public">
+          <Argument type="String" name="pPago"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MenuPpal" package="Entrega" visibility="public" xPosition="2257.0" yPosition="3967.0">
+      <Fields>
+        <Field name="correo" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="ID" type="String" visibility="private"/>
+        <Field name="prox" type="Proxy" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="menu" returnType="void" visibility="private"/>
+        <Method name="inicioSesion" returnType="void" visibility="public"/>
+        <Method name="crearUsuario" returnType="void" visibility="public"/>
+        <Method name="casoNuevoConductor" returnType="void" visibility="public"/>
+        <Method name="casoNuevoPasajero" returnType="void" visibility="public"/>
+        <Method name="casoNuevoAdmin" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MenUsuario" package="Entrega" visibility="public" xPosition="2089.0" yPosition="4592.0">
+      <Fields>
+        <Field name="fac" type="Facade" visibility="private"/>
+        <Field name="usuario" type="Usuario" visibility="private"/>
+        <Field name="ID" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="usuario"/>
+          <Argument type="Facade" name="fac"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="menuConductor" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="menuPasajero" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="menuAdmin" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="rutasC" returnType="void" visibility="private"/>
+        <Method name="addCalle" returnType="void" visibility="public">
+          <Argument type="Ruta" name="ruta"/>
+        </Method>
+        <Method name="rutasP" returnType="void" visibility="private"/>
+        <Method name="menuPago" returnType="void" visibility="private"/>
+        <Method name="rPago" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Pago" package="Entrega" visibility="public" xPosition="673.0" yPosition="2452.0">
+      <Fields>
+        <Field name="valorPago" type="String" visibility="private"/>
+        <Field name="referencia" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="asignarValores" returnType="void" visibility="public">
+          <Argument type="String" name="pPago"/>
+        </Method>
+        <Method name="mostrarValores" returnType="String" visibility="public"/>
+        <Method name="darReferencia" returnType="String" visibility="public"/>
+        <Method name="darUsuario" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Pasajero" package="Entrega" visibility="public" xPosition="2791.0" yPosition="2457.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="adicionar" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="modificar" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="consultar" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Proxy" package="Entrega" visibility="public" xPosition="1951.0" yPosition="3358.0">
+      <Fields>
+        <Field name="instanciaUnica" type="Proxy" visibility="private" isStatic="true"/>
+        <Field name="usuarios" type="ArrayList&lt;Usuario&gt;" visibility="private"/>
+        <Field name="fac" type="Facade" visibility="private"/>
+        <Field name="menu" type="MenUsuario" visibility="package"/>
+        <Field name="user" type="Usuario" visibility="package"/>
+        <Field name="ID" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="rConstructora" returnType="Proxy" visibility="public" isStatic="true"/>
+        <Method name="performOperations" returnType="void" visibility="public"/>
+        <Method name="validarUs" returnType="void" visibility="public">
+          <Argument type="String" name="usuario"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="addUs" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="ID"/>
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="modUs" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="elimUs" returnType="boolean" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="getMenu" returnType="MenUsuario" visibility="public"/>
+        <Method name="setMenu" returnType="void" visibility="public">
+          <Argument type="MenUsuario" name="menu"/>
+        </Method>
+        <Method name="getUser" returnType="Usuario" visibility="public"/>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="Usuario" name="user"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Ruta" package="Entrega" visibility="public" xPosition="217.0" yPosition="3241.0">
+      <Fields>
+        <Field name="idConductor" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="valor" type="float" visibility="private"/>
+        <Field name="cupos" type="int" visibility="private"/>
+        <Field name="pasajeros" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="fecha" type="String" visibility="private"/>
+        <Field name="hora" type="String" visibility="private"/>
+        <Field name="destino" type="String" visibility="private"/>
+        <Field name="componentes" type="ArrayList&lt;Composite&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="idConductor"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="float" name="valor"/>
+          <Argument type="int" name="cupos"/>
+          <Argument type="String" name="fecha"/>
+          <Argument type="String" name="hora"/>
+          <Argument type="String" name="destino"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="private">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="mostrar" returnType="String" visibility="public"/>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Composite" name="e"/>
+        </Method>
+        <Method name="getComponentes" returnType="ArrayList&lt;Composite&gt;" visibility="public"/>
+        <Method name="setComponentes" returnType="void" visibility="private">
+          <Argument type="ArrayList&lt;Composite&gt;" name="componentes"/>
+        </Method>
+        <Method name="getValor" returnType="float" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="float" name="valor"/>
+        </Method>
+        <Method name="getCupos" returnType="int" visibility="public"/>
+        <Method name="setCupos" returnType="void" visibility="public">
+          <Argument type="int" name="cupos"/>
+        </Method>
+        <Method name="getPasajeros" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="setPasajeros" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;String&gt;" name="pasajeros"/>
+        </Method>
+        <Method name="getFecha" returnType="String" visibility="public"/>
+        <Method name="setFecha" returnType="void" visibility="public">
+          <Argument type="String" name="fecha"/>
+        </Method>
+        <Method name="getHora" returnType="String" visibility="public"/>
+        <Method name="setHora" returnType="void" visibility="public">
+          <Argument type="String" name="hora"/>
+        </Method>
+        <Method name="getDestino" returnType="String" visibility="public"/>
+        <Method name="setDestino" returnType="void" visibility="public">
+          <Argument type="String" name="destino"/>
+        </Method>
+        <Method name="getIdConductor" returnType="String" visibility="public"/>
+        <Method name="setIdConductor" returnType="void" visibility="public">
+          <Argument type="String" name="idConductor"/>
+        </Method>
+        <Method name="reservaCupo" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="Entrega" visibility="public" isAbstract="true" xPosition="2791.0" yPosition="3226.0">
+      <Fields>
+        <Field name="Correo" type="String" visibility="private"/>
+        <Field name="Pass" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="adicionar" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="modificar" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="consultar" returnType="String" visibility="public" isAbstract="true">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="getCorreo" returnType="String" visibility="public"/>
+        <Method name="setCorreo" returnType="void" visibility="public">
+          <Argument type="String" name="Correo"/>
+        </Method>
+        <Method name="getPass" returnType="String" visibility="public"/>
+        <Method name="setPass" returnType="void" visibility="public">
+          <Argument type="String" name="Pass"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="component" package="Entrega" visibility="public" xPosition="1106.0" yPosition="2506.0">
+      <Methods>
+        <Method name="asignarValores" returnType="void" visibility="public">
+          <Argument type="String" name="pPago"/>
+        </Method>
+        <Method name="mostrarValores" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Composite" package="Entrega" visibility="public" xPosition="431.0" yPosition="4186.0">
+      <Methods>
+        <Method name="mostrar" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="IMenu" package="Entrega" visibility="public" xPosition="2075.0" yPosition="3172.0">
+      <Methods>
+        <Method name="performOperations" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="IUsuario" package="Entrega" visibility="public" xPosition="2068.0" yPosition="2805.0">
+      <Methods>
+        <Method name="adicionar" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="modificar" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="consultar" returnType="String" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="getCorreo" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="mediosPagopse" source="Entrega.MediosDePago" target="Entrega.component" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Pago" target="Entrega.component"/>
+    <IsRelation name="is" source="Entrega.Efectivo" target="Entrega.MediosDePago"/>
+    <HasRelation name="usuarios" source="Entrega.Facade" target="Entrega.FactoryUsuarios" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entrega.Pasajero" target="Entrega.Usuario"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Proxy" target="Entrega.IMenu"/>
+    <HasRelation name="usuarios" source="Entrega.Proxy" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Usuario&gt;"/>
+    <HasRelation name="adapterAdmin" source="Entrega.AdapterAdmin" target="Entrega.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Calle" target="Entrega.Composite"/>
+    <HasRelation name="user" source="Entrega.Proxy" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entrega.MenUsuario" target="Entrega.Ruta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entrega.Proxy" target="Entrega.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.MediosDePago" target="Entrega.component"/>
+    <HasRelation name="menu" source="Entrega.Proxy" target="Entrega.MenUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entrega.Credito" target="Entrega.MediosDePago"/>
+    <HasRelation name="usuario" source="Entrega.MenUsuario" target="Entrega.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entrega.Conductor" target="Entrega.Usuario"/>
+    <HasRelation name="pagos" source="Entrega.Facade" target="Entrega.component" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;component&gt;"/>
+    <IsRelation name="is" source="Entrega.Baloto" target="Entrega.MediosDePago"/>
+    <HasRelation name="misUsuarios" source="Entrega.Facade" target="Entrega.IUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;IUsuario&gt;"/>
+    <UseRelation source="Entrega.FactoryUsuarios" target="Entrega.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Ruta" target="Entrega.Composite"/>
+    <HasRelation name="miLista" source="Entrega.FactoryUsuarios" target="Entrega.IUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, IUsuario&gt;"/>
+    <UseRelation source="Entrega.Proxy" target="Entrega.Proxy" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instanciaUnica" source="Entrega.Proxy" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="componentes" source="Entrega.Ruta" target="Entrega.Composite" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Composite&gt;"/>
+    <HasRelation name="prox" source="Entrega.Facade" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fac" source="Entrega.MenUsuario" target="Entrega.Facade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entrega.Facade" target="Entrega.Ruta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Entrega.Usuario" target="Entrega.IUsuario"/>
+    <HasRelation name="rutas" source="Entrega.Facade" target="Entrega.Ruta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ruta&gt;"/>
+    <HasRelation name="fac" source="Entrega.Proxy" target="Entrega.Facade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entrega.Ruta" target="Entrega.Composite" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="prox" source="Entrega.MenuPpal" target="Entrega.Proxy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entrega.AdapterAdmin" target="Entrega.Usuario"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
