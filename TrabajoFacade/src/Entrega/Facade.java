@@ -310,45 +310,22 @@ public class Facade {
         return historial;
     }
 
-    public String elimUsa(String id, String idAdmin) {
-        boolean existe = false;
+    public void eliminarUsuario(String id, String idAdmin) throws Exception {
+        boolean eliminado = false;
         prox = Proxy.rConstructora();
         IUsuario usuario = usuarios.buscar(id);
-        String respuesta = "A";
 
         if (usuario != null) {
-            existe = true;
-            if (id.equalsIgnoreCase(idAdmin)) {
-                respuesta = "No se puede eliminar a usted mismo.";
-            } else {
-                String correo = usuario.getCorreo();
-                usuarios.eliminarUsuario(id);
-                prox.elimUs(correo);
-                respuesta = "El usuario con la cedula " + id + " ha sido eliminado correctamente";
-            }
-        }
-        if (!existe) {
-            respuesta = "Usuario con la cedula " + id + " no existe.";
-        }
-        return respuesta;
-    }
-    public void eliminarUsuario(String id, String idAdmin) throws Exception {
-        boolean eliminado=false;
-        prox = Proxy.rConstructora();
-        IUsuario usuario = usuarios.buscar(id);
-        
-        if(usuario!=null){
             if (id.equalsIgnoreCase(idAdmin)) {
                 throw new Exception("No se puede eliminar a usted mismo.");
-            } 
+            }
             String correo = usuario.getCorreo();
             usuarios.eliminarUsuario(id);
-            eliminado=prox.elimUs(correo);
+            eliminado = prox.elimUs(correo);
         }
-        if(!eliminado){
+        if (!eliminado) {
             throw new Exception("Usuario con la cedula " + id + " no existe.");
         }
 
-        
     }
 }
