@@ -13,7 +13,7 @@ abstract class MediosDePago implements component {
         return this.mediosPagopse.mostrarValores() + " Pago realizado por: " + mediopag;
     }
 
-    public void asignarValores(String pPago) {
-        this.mediopag = pPago;
-    }
+        public void asignarValores(String pPago) {
+            this.mediopag = pPago;
+        }
 }

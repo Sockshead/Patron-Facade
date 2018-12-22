@@ -8,7 +8,7 @@ public class Pago implements component {
 
     @Override
     public void asignarValores(String pPago) {
-        String[] para = pPago.split(",");
+         
         valorPago = para[0];
         referencia = para[1];
         usuario = para[2];
